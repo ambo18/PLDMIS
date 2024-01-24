@@ -81,7 +81,7 @@
 <body>
 	<div class="main-wthree">
 		<div class="container">
-			<h1 class="text-center text-white"><b>Development of a Personnel Learning And Development Management Information System</b></h1>
+			<h1 class="text-center text-white"><b>Development of a Learning And Development Management Information System</b></h1>
 		<div class="sin-w3-agile">
 			<h2></h2>
 			<form action="controller/login.php" method="post">
@@ -108,7 +108,7 @@
 						<a href="index.php">Back to home</a>
 					</div> -->
 					<div class="footer">
-						<p>Development of a Personnel Learning And Development Management Information System &copy; <?= date("Y") ?> </p>
+						<p>Development of a Learning And Development Management Information System &copy; <?= date("Y") ?> </p>
 					</div>
 		</div>
 		</div>

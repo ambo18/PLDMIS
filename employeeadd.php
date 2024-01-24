@@ -282,20 +282,30 @@
               </div>
             </div>
 
-            <div class="col-md-3 control-label">
-              <label class="control-label">Role*</label>
-              <div class="input-group">             
-                  <span class="input-group-addon">
-              <i class="fa fa-user" aria-hidden="true"></i>
-              </span>
-              <select name="role" required="" title="Role" style="text-transform: capitalize;"  >
-                <option value="">-- Select Role --</option>
-                <?php while($rw = mysqli_fetch_assoc($rolen)){ ?> 
-                  <option value="<?php echo $rw["RoleId"]; ?>" <?php if(isset($editemp["RoleId"]) && $editemp["RoleId"]==$rw["RoleId"]){ echo "Selected"; }?>> <?php echo $rw["Name"]; ?> </option>
-                <?php } ?>
-              </select>
-              </div>
-            </div>
+            <?php
+            if (!isset($editemp["RoleId"]) || $editemp["RoleId"] != 1) {
+            ?>
+                <div class="col-md-3 control-label">
+                    <label class="control-label">Role*</label>
+                    <div class="input-group">             
+                        <span class="input-group-addon">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                        <select name="role" required="" title="Role" style="text-transform: capitalize;"  >
+                            <option value="">-- Select Role --</option>
+                            <?php
+                            while($rw = mysqli_fetch_assoc($rolen)){
+                                $disabled = ($rw["RoleId"] == 1) ? 'disabled' : '';
+                            ?>
+                            <option value="<?php echo $rw["RoleId"]; ?>" <?php if(isset($editemp["RoleId"]) && $editemp["RoleId"]==$rw["RoleId"]){ echo "Selected"; } echo $disabled; ?>>
+                                <?php echo $rw["Name"]; ?>
+                            </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+            <?php } ?>
+            
             <div class="clearfix"> </div>
             </div>
 

@@ -2,7 +2,7 @@
    session_start();
    if(!isset($_SESSION['User']))
     {
-        header('location:index.php');exit();
+        header('location:user/index.php');exit();
     }
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
       <link rel="stylesheet" href="css/text_select_button.css"> 
       <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
       <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-      <script type="text/javascript" src="js/jquery-ui.min.js"></script>    
+      <script type="text/javascript" src="js/jquery-ui.min.js"></script>  
 
       <link href="../css/font-awesome.css" rel="stylesheet"> 
       <link rel="stylesheet" href="../css/icon-font.min.css" type='text/css' />
@@ -129,7 +129,7 @@ nav{
          <nav>
             <div class="line">
                <div class="s-12 l-5">
-                  <h3 style="color: white;">PLDMIS</h3>
+                  <h3 style="color: white;">DLDMIS</h3>
                </div>
                <div class="top-nav s-12 l-3 right">
                   <div class="employee-name" style="margin-top: 5%; margin-left: 18%;">
@@ -155,6 +155,13 @@ nav{
                            <ul>
                               <li><a href="applyleave.php">Apply</a></li>
                               <li><a href="leavestatus.php">Applications</a></li>
+                           </ul>
+                        </li>
+                        <li>
+                           <a title="Faculty-Development">Faculty Development</a>
+                           <ul>
+                              <li><a href="training.php">Training/ Seminar</a></li>
+                              <li><a href="trainingsview.php">Training/ Seminar Attended</a></li>                             
                            </ul>
                         </li>
                         <li><a href="changepassword.php" title="Change Password">Password</a></li>

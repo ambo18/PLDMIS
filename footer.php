@@ -19,7 +19,7 @@
 <!--inner block end here-->
 <!--copy rights start here-->
 <div style="margin-top: -20px;" class="copyrights">
-	 <p>Development of a Personnel Learning And Development Management Information System &copy; <?= date("Y") ?></p>
+	 <p>Development of a Learning And Development Management Information System &copy; <?= date("Y") ?></p>
 </div>	
 <!--COPY rights end here-->
 </div>

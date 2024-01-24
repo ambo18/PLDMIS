@@ -204,10 +204,14 @@
 	<div class="clearfix"></div>
 	<div class="row" style="text-align: center; margin-top: 2%;">
 		<div class="col-md-12 form-group">
-		<input type="hidden" name="employeeid" value="<?php echo $empid; ?>">
-		<button type="submit" name="edit" class="btn btn-primary">Edit</button>
-		<button type="submit" name="delete" class="btn btn-default">Delete</button>
-		<button type="submit" name="close" class="btn btn-primary">Close</button>
+			<input type="hidden" name="employeeid" value="<?php echo $empid; ?>">
+			<button type="submit" name="edit" class="btn btn-primary">Edit</button>
+			<?php
+				if ($rolen && $rolen['RoleId'] == 3) {
+					echo '<button type="submit" name="delete" class="btn btn-default">Delete</button>';
+				}
+			?>
+			<button type="submit" name="close" class="btn btn-primary">Close</button>
 		</div>
 	</div>
 </div>

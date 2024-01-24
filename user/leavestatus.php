@@ -6,21 +6,17 @@
   $db=$dbs->connection();
 
   $empid = $_SESSION['User']['EmployeeId'];
-  $leavedetails = mysqli_query($db,"select * from leavedetails where EmpId='$empid' ");
+  $leavedetails = mysqli_query($db,"SELECT * FROM leavedetails WHERE EmpId='$empid'");
 ?>
             <div class="s-12 l-10">
                <h1>Leave Applications</h1><hr>
                <div class="clearfix"></div>
                
-               
-               	<div class="s-12 l-1">
-               		<h4 style="background: #858282; color: white; text-align: center; border-radius: 4px 0px 0px 4px;">ID</h4>
-               	</div>
                	<div class="s-12 l-2">
                		<h4 style="background: #858282; color: white; text-align: center;">Leave Status</h4>
                	</div>
                	<div class="s-12 l-3">
-               		<h4 style="background: #858282; color: white; text-align: center;">Reason</h4>
+               		<h4 style="background: #858282; color: white; text-align: center;">Commutation</h4>
                	</div>
                	<div class="s-12 l-2">
                		<h4 style="background: #858282; color: white; text-align: center;">Start Date</h4>
@@ -40,9 +36,8 @@
 			      $typename = mysqli_query($db,"select * from type_of_leave where LeaveId='$typeid' ");
 			      $typen = mysqli_fetch_assoc($typename); ?>
         	
-	               	<div class="s-12 l-1" style="text-align: center;"><?php $i=$i; echo $i; $i++;?></div>
-	               	<div class="s-12 l-2" style="text-align: center;"><?php echo ucfirst((isset($typen['Type_of_Name']))?$typen['Type_of_Name']:""); ?></div>
-	               	<div class="s-12 l-3" style="text-align: center;"><?php echo(isset($rom['Reason']))?$rom['Reason']:""; ?></div>
+	               	<div class="s-12 l-2" style="text-align: center;"><?php echo ucfirst((isset($rom['TypesLeaveId']))?$rom['TypesLeaveId']:""); ?></div>
+	               	<div class="s-12 l-3" style="text-align: center;"><?php echo(isset($rom['Commutation']))?$rom['Commutation']:""; ?></div>
 	               	<div class="s-12 l-2" style="text-align: center;"><?php echo(isset($rom['StateDate']))?$rom['StateDate']:""; ?></div>
 	               	<div class="s-12 l-2" style="text-align: center;"><?php echo(isset($rom['EndDate']))?$rom['EndDate']:""; ?></div>
 	               	<div class="s-12 l-1" style="text-align: center;"><?php echo(isset($rom['LeaveStatus']))?$rom['LeaveStatus']:""; ?></div>

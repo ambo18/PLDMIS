@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2023 at 09:46 AM
+-- Generation Time: Jan 12, 2024 at 07:11 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -113,7 +113,12 @@ INSERT INTO `dailyworkload` (`DailyWorkLoadId`, `EmpId`, `LoginDate`, `LogoutDat
 (13, '1', '2023-12-05 12:29:16', NULL, NULL),
 (14, '54321', '2023-12-05 12:31:59', NULL, NULL),
 (15, '09876', '2023-12-05 12:35:48', '2023-12-05 12:36:21', 28362666),
-(16, '122333', '2023-12-05 12:43:14', '2023-12-05 13:52:29', 69);
+(16, '122333', '2023-12-05 12:43:14', '2023-12-05 13:52:29', 69),
+(17, '122333', '2023-12-07 09:14:45', '2023-12-07 09:15:24', 28365345),
+(18, '1', '2023-12-07 09:15:34', NULL, NULL),
+(19, '6231415', '2024-01-06 19:59:22', NULL, NULL),
+(20, '6231415', '2024-01-09 11:28:43', '2024-01-09 13:56:14', 148),
+(21, '1', '2024-01-09 13:56:26', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -158,9 +163,10 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`EmpId`, `EmployeeId`, `FirstName`, `MiddleName`, `LastName`, `Birthdate`, `Gender`, `Address1`, `Address2`, `Address3`, `CityId`, `Mobile`, `Email`, `Password`, `AadharNumber`, `MaritalStatus`, `PositionId`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`, `JoinDate`, `LeaveDate`, `LastLogin`, `LastLogout`, `StatusId`, `RoleId`, `ImageName`, `MacAddress`) VALUES
-(1, '1', 'ADmin', 'ADmin', 'Admin', '1994-10-09', 1, 'address1', 'address2', 'address3', 1, 9999999999, 'admin', 'admin', '', 2, 1, 1, '2017-01-01 00:00:00', 1, '2023-12-05 02:11:32', '2023-11-24', '0000-00-00', '2023-12-05 13:59:57', '2017-02-09 15:12:09', 1, 1, '140323303827user.png', ''),
-(2, '6231415', 'Krizzle', 'P', 'Picasso', '2023-10-01', 1, 'Caridad, Salcedo, Eastern Samar', 'Naparaan Salcedo Eastern Samar- ESSU', '', 1, 912345678, 'krizzle', 'krizzle', '', 2, 2, 1, '2022-10-10 08:01:43', 1, '2023-11-25 05:01:56', '2022-10-10', '0000-00-00', '2023-12-04 10:22:09', '2023-11-25 19:36:40', 1, 3, '146570290338female-avatar.png', ''),
-(15, '12345', 'First Name', 'Middle Name', 'Last Name', '2023-11-25', 1, 'Naparaan', 'Abejao', '', 2, 9111111111, 'test', 'test', '', 1, 6, 1, '2023-11-25 07:25:32', 1, '2023-11-26 09:40:24', '2023-11-25', '0000-00-00', '2023-12-05 12:26:43', '2023-12-05 12:26:48', 1, 3, '31291133615user.png', '');
+(1, '1', 'ADmin', 'ADmin', 'Admin', '1994-10-09', 1, 'address1', 'address2', 'address3', 1, 9999999999, 'admin', 'admin', '', 2, 1, 1, '2017-01-01 00:00:00', 1, '2023-12-05 02:11:32', '2023-11-24', '0000-00-00', '2024-01-09 13:56:26', '2017-02-09 15:12:09', 1, 1, '140323303827user.png', ''),
+(2, '6231415', 'Krizzle', 'P', 'Picasso', '2023-10-01', 1, 'Caridad, Salcedo, Eastern Samar', 'Naparaan Salcedo Eastern Samar- ESSU', '', 1, 912345678, 'krizzle', 'krizzle', '', 2, 2, 1, '2022-10-10 08:01:43', 1, '2023-11-25 05:01:56', '2022-10-10', '0000-00-00', '2024-01-09 13:53:34', '2024-01-09 13:56:14', 1, 3, '146570290338female-avatar.png', ''),
+(15, '12345', 'First Name', 'Middle Name', 'Last Name', '2023-11-25', 1, 'Naparaan', 'Abejao', '', 2, 9111111111, 'test', 'test', '', 1, 6, 1, '2023-11-25 07:25:32', 1, '2023-11-26 09:40:24', '2023-11-25', '0000-00-00', '2023-12-05 12:26:43', '2023-12-05 12:26:48', 1, 3, '31291133615user.png', ''),
+(29, '122333', 'herod', 'balmocina', 'Tandugon', '2023-11-26', 1, 'seguinon', 'swdsxsdx', 'rgtetetwttrrw', 1, 9971478896, 'test122333', 'test122333', '', 2, 7, 1, '2023-12-07 09:13:21', 1, '2023-12-07 09:14:25', '2023-11-27', '0000-00-00', '2023-12-07 09:14:45', '2023-12-07 09:15:24', 1, 3, '194209303827user.png', '');
 
 -- --------------------------------------------------------
 
@@ -303,6 +309,28 @@ INSERT INTO `role` (`RoleId`, `Name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `seminardetails`
+--
+
+CREATE TABLE `seminardetails` (
+  `Detail_Id` int(11) NOT NULL,
+  `EmpId` int(20) DEFAULT NULL,
+  `SeminarType` text DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `Progress` int(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `seminardetails`
+--
+
+INSERT INTO `seminardetails` (`Detail_Id`, `EmpId`, `SeminarType`, `date`, `Progress`) VALUES
+(3, 6231415, 'Seminar1', '2024-01-01', 10),
+(4, 1, 'Seminar2', '2024-01-04', 46);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `state`
 --
 
@@ -338,6 +366,29 @@ CREATE TABLE `status` (
 INSERT INTO `status` (`StatusId`, `Name`) VALUES
 (1, 'active'),
 (2, 'inactive');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trainingdetails`
+--
+
+CREATE TABLE `trainingdetails` (
+  `Detail_Id` int(11) NOT NULL,
+  `EmpId` int(20) DEFAULT NULL,
+  `TrainingType` text DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `Progress` int(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `trainingdetails`
+--
+
+INSERT INTO `trainingdetails` (`Detail_Id`, `EmpId`, `TrainingType`, `date`, `Progress`) VALUES
+(11, 6231415, 'Training2', '2024-01-02', 40),
+(12, 6231415, 'Training3', '2024-01-03', 80),
+(13, 1, 'Trainingadmin1', '2024-01-01', 10);
 
 -- --------------------------------------------------------
 
@@ -433,6 +484,12 @@ ALTER TABLE `role`
   ADD PRIMARY KEY (`RoleId`);
 
 --
+-- Indexes for table `seminardetails`
+--
+ALTER TABLE `seminardetails`
+  ADD PRIMARY KEY (`Detail_Id`);
+
+--
 -- Indexes for table `state`
 --
 ALTER TABLE `state`
@@ -443,6 +500,12 @@ ALTER TABLE `state`
 --
 ALTER TABLE `status`
   ADD PRIMARY KEY (`StatusId`);
+
+--
+-- Indexes for table `trainingdetails`
+--
+ALTER TABLE `trainingdetails`
+  ADD PRIMARY KEY (`Detail_Id`);
 
 --
 -- Indexes for table `type_of_leave`
@@ -470,13 +533,13 @@ ALTER TABLE `country`
 -- AUTO_INCREMENT for table `dailyworkload`
 --
 ALTER TABLE `dailyworkload`
-  MODIFY `DailyWorkLoadId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `DailyWorkLoadId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `EmpId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `EmpId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `gender`
@@ -509,10 +572,22 @@ ALTER TABLE `position`
   MODIFY `PositionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT for table `seminardetails`
+--
+ALTER TABLE `seminardetails`
+  MODIFY `Detail_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `state`
 --
 ALTER TABLE `state`
   MODIFY `StateId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `trainingdetails`
+--
+ALTER TABLE `trainingdetails`
+  MODIFY `Detail_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `type_of_leave`
