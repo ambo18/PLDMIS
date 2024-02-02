@@ -24,7 +24,7 @@
                <div class="clearfix"></div>
                </div>
                <div class="s-12 l-6">
-                 	<form action="" method="post">
+                <form action="" method="post">
 					              <label for="trainingtype">Training/Seminar Title</label>
 					        <input type="text" id="trainingtype" name="trainingtype" placeholder="Training/Seminar Title" title="Training" required="" autocomplete="off">
                         <label>Type Seminar/Training</label>
@@ -40,8 +40,11 @@
 					        <input type="text" id="targetstatus" name="targetstatus" placeholder="Target Status" title="Target Status" required="" autocomplete="off">
                         <label for="date">Date</label>
 					        <input type="date" id="date" name="date" class="form-control" required="">
-					    <input type="submit" name="training" title="Submit" value="Submit">
-				  	</form>
+                  <input type="submit" name="training" title="Save" value="Save">
+                </form>
+               </div>
+               <div class="l-4">
+                <a href="trainingsview.php" style="float: right; margin-top: 420px;">View Training/Seminar Attended</a>
                </div>
 
 <?php include('userfooter.php'); ?>

@@ -182,8 +182,14 @@
 				</tbody>
 				<tbody>
 					<tr>
-						<td style="text-align: right;"><b>Position</b> ::</td>
+						<td style="text-align: right;"><b>Designation</b> ::</td>
 						<td><?php if($positionn) { echo $positionn['Name']; } else{ echo "Null"; }?></td>
+					</tr>
+				</tbody>
+				<tbody>
+					<tr>
+						<td style="text-align: right;"><b>Academic Rank</b> ::</td>
+						<td><?php if($row) { echo $row['AcademicRank']; } else{ echo "Null"; }?></td>
 					</tr>
 				</tbody>
 				<tbody>

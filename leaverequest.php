@@ -6,6 +6,7 @@
   $db=$dbs->connection();
   $Statusl = "Pending";
   $leavedetails = mysqli_query($db,"select * from leavedetails where LeaveStatus='$Statusl'");
+  
   if(isset($_GET['id']))
   {
     $acceptid = $_GET['id'];
@@ -35,13 +36,13 @@
         <div style="background: #202a29;" class="col-md-2 control-label">
             <h5>Name</h5>
         </div>
-        <div style="background: #202a29; text-align: center;" class="col-md-1 control-label">
-            <h5>EmpID</h5>
+        <div style="background: #202a29; text-align: center;" class="col-md-2 control-label">
+            <h5>Academic Rank</h5>
         </div>
         <div style="background: #202a29;" class="col-md-2 control-label">
             <h5>Leave Status</h5>
         </div>
-        <div style="background: #202a29; " class="col-md-2 control-label">
+        <div style="background: #202a29; " class="col-md-1 control-label">
             <h5>Commutation</h5>
         </div>
         <div style="background: #202a29; text-align: center;" class="col-md-2 control-label">
@@ -60,15 +61,18 @@
       $name = mysqli_query($db,"select * from employee where EmployeeId='$empid'");
       $empname=mysqli_fetch_assoc($name);
       $namem = ucfirst($empname['FirstName'])."&nbsp;".ucfirst($empname['LastName']);
+
+      $academicRank = ucfirst($empname['AcademicRank']);
+
       $typen = $row['TypesLeaveId'];
       $typeid = mysqli_query($db,"select * from type_of_leave where LeaveId='$typen'");
       $typename = mysqli_fetch_assoc($typeid);
       ?>
     <div class="row" style="margin-right: 0; margin-top: 10px; margin-left: 0;">
       <div class="col-md-2"><?php echo (isset($namem))?$namem:"";?></div>
-      <div class="col-md-1" style="text-align: center;"><?php echo (isset($row['EmpId']))?$row['EmpId']:"";?></div>
+      <div class="col-md-2" style="text-align: center;"><?php echo ucfirst(isset($academicRank) ? $academicRank : ""); ?></div>
       <div class="col-md-2"><?php echo ucfirst((isset($row['TypesLeaveId']))?$row['TypesLeaveId']:"");?></div>
-      <div class="col-md-2" ><?php echo ucfirst((isset($row['Commutation']))?$row['Commutation']:"");?></div>
+      <div class="col-md-1" ><?php echo ucfirst((isset($row['Commutation']))?$row['Commutation']:"");?></div>
       <div class="col-md-2" style="text-align: center;"><?php echo (isset($row['StateDate']))?$row['StateDate']:"";?></div>
       <div class="col-md-2" style="text-align: center;"><?php echo (isset($row['EndDate']))?$row['EndDate']:"";?></div>
       

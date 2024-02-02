@@ -160,8 +160,7 @@ nav{
                         <li>
                            <a title="Faculty-Development">Faculty Development</a>
                            <ul>
-                              <li><a href="training.php">Training/ Seminar</a></li>
-                              <li><a href="trainingsview.php">Training/ Seminar Attended</a></li>                             
+                              <li><a href="training.php">Training/ Seminar</a></li>                             
                            </ul>
                         </li>
                         <li><a href="changepassword.php" title="Change Password">Password</a></li>

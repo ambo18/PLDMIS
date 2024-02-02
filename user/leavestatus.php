@@ -13,7 +13,7 @@
                <div class="clearfix"></div>
                
                	<div class="s-12 l-2">
-               		<h4 style="background: #858282; color: white; text-align: center;">Leave Status</h4>
+               		<h4 style="background: #858282; color: white; text-align: center;">Leave Type</h4>
                	</div>
                	<div class="s-12 l-3">
                		<h4 style="background: #858282; color: white; text-align: center;">Commutation</h4>
@@ -27,7 +27,7 @@
                	<div class="s-12 l-1">
                		<h4 style="background: #858282; color: white; text-align: center;">Status</h4>
                	</div>
-               	<div class="s-12 l-1">
+               	<div class="s-12 l-2">
                		<h4 style="background: #858282; color: white; text-align: center; border-radius: 0px 4px 4px 0px;">Action</h4>
                	</div>
                
@@ -43,9 +43,19 @@
 	               	<div class="s-12 l-1" style="text-align: center;"><?php echo(isset($rom['LeaveStatus']))?$rom['LeaveStatus']:""; ?></div>
 
 	               	<?php if($rom['LeaveStatus'] == "Pending") {?>
-	               		<div class="s-12 l-1" style="text-align: center;"><a onclick="history.go(0)" title="Refresh"><i class="la fa fa-refresh" style="color: #050100;" aria-hidden="true"></i></a></div>
+	               		<div class="s-12 l-1" style="text-align: center; padding-left: 50px;""><a onclick="history.go(0)" title="Refresh"><i class="la fa fa-refresh" style="color: #050100;" aria-hidden="true"></i></a></div>
+						<div class="s-12 l-1" style="text-align: center; padding-right: 50px;">
+							<a title="Print" onclick="printLeaveApplication('<?php echo $rom['EmpId']; ?>')">
+								<i class="fa fa-print" style="color: #2ecc71;" aria-hidden="true"></i>
+							</a>
+						</div>
 	               	<?php } else if($rom['LeaveStatus'] == "Accept"){ ?>
-	               		<div class="s-12 l-1" style="text-align: center;"><a title="Accept"><i class="fa fa-check" style="color: #008DE7;" aria-hidden="true"></i></a></div>
+	               		<div class="s-12 l-1" style="text-align: center; padding-left: 50px;"><a title="Accept"><i class="fa fa-check" style="color: #008DE7;" aria-hidden="true"></i></a></div>
+						<div class="s-12 l-1" style="text-align: center; padding-right: 50px;">
+							<a title="Print" onclick="printLeaveApplication('<?php echo $rom['EmpId']; ?>')">
+								<i class="fa fa-print" style="color: #2ecc71;" aria-hidden="true"></i>
+							</a>
+						</div>
 	               	<?php } else {?>
 	               		<div class="s-12 l-1" style="text-align: center;"><a title="Denied"><i class="fa fa-times" style="color: #E83114;" aria-hidden="true"></i></a></div>
 	               	<?php } ?>
@@ -64,4 +74,13 @@
         $(this).addClass('fa fa-refresh')
     })
 </script>
+<script>
+    function printLeaveApplication(EmpId) {
+        // You can customize this URL based on your actual file structure
+        var printUrl = 'print_leave.php?EmpId=' + EmpId;
+        window.open(printUrl, '_blank');
+    }
+</script>
+
+
 <?php include('userfooter.php'); ?>

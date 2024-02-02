@@ -326,6 +326,16 @@
             </div>
 
             <div class="col-md-3 control-label">
+              <label class="control-label">Academic Rank*</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              </span>
+              <input type="text" name="academicrank" title="Academic Rank" value="<?php echo(isset($editemp["AcademicRank"]))?$editemp["AcademicRank"]:""; ?>" class="form-control" placeholder="Academic Rank" required="">
+              </div>
+            </div>
+
+            <div class="col-md-3 control-label">
               <label class="control-label">Username*</label>
               <div class="input-group">             
                   <span class="input-group-addon">

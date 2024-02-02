@@ -93,6 +93,7 @@
                                     <form method="POST" action="#">
                                         <input type="hidden" name="employeeid" value="<?php echo $row['Detail_Id']; ?>">
                                         <u><button type="submit" name="delete" class="btn btn-default">Delete</button></u>
+                                        <button type="button" onclick="printTableRow(<?php echo $row['Detail_Id']; ?>)" class="btn btn-default"><i class="fa fa-print" style="color: #2ecc71;" aria-hidden="true"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -136,4 +137,11 @@
         modal.style.display = "none";
     }
 </script>
-<!--End image Popup -->
+<script>
+    function printTableRow(detailId) {
+        // You can customize this URL based on your actual file structure
+        var printUrl = 'print.php?detailId=' + detailId;
+        window.open(printUrl, '_blank');
+    }
+</script>
+

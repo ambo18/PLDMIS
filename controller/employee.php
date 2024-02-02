@@ -19,6 +19,7 @@
 		$bdate=$data['bdate'];
 		$mnumber=$data['mnumber'];
 		$email=$data['email'];
+		$academicrank=$data['academicrank'];
 		$address1=$data['address1'];
 		$address2=$data['address2'];
 		$address3=$data['address3'];
@@ -101,7 +102,7 @@
 				{
 					$name = $_POST["imagefilename"];
 				}
-				mysqli_query($db,"insert into employee values(null,'$empid','$fname','$mname','$lname','$bdate','$gender','$address1','$address2','$address3','$city','$mnumber','$email','$password','$aadharcard','$marital','$position','$roleid','$datetime',null,null,'$joindate','$leavedate',null,null,'$status','$role','$name','$macaddress')");
+				mysqli_query($db,"insert into employee values(null,'$empid','$fname','$mname','$lname','$bdate','$gender','$address1','$address2','$address3','$city','$mnumber','$email','$password','$aadharcard','$marital','$position','$academicrank','$roleid','$datetime',null,null,'$joindate','$leavedate',null,null,'$status','$role','$name','$macaddress')");
 
 				header("location:../employeeview.php");exit;
 			}
@@ -116,7 +117,7 @@
 				{
 					$name = $_POST["imagefilename"];
 				}
-				mysqli_query($db,"update employee set EmployeeId='$empid',FirstName='$fname',MiddleName='$mname',LastName='$lname',Birthdate='$bdate',Gender='$gender',Address1='$address1',Address2='$address2',Address3='$address3',CityId='$city',Mobile='$mnumber',Email='$email',Password='$password',AadharNumber='$aadharcard',MaritalStatus='$marital',PositionId='$position',ModifiedBy='$roleid',ModifiedDate='$datetime',JoinDate='$joindate',LeaveDate='$leavedate',StatusId='$status',RoleId='$role',ImageName='$name',MacAddress='$macaddress' where EmpId='$editid' ");
+				mysqli_query($db,"update employee set EmployeeId='$empid',FirstName='$fname',MiddleName='$mname',LastName='$lname',Birthdate='$bdate',Gender='$gender',Address1='$address1',Address2='$address2',Address3='$address3',CityId='$city',Mobile='$mnumber',Email='$email',Password='$password',AadharNumber='$aadharcard',MaritalStatus='$marital',PositionId='$position',AcademicRank='$academicrank',ModifiedBy='$roleid',ModifiedDate='$datetime',JoinDate='$joindate',LeaveDate='$leavedate',StatusId='$status',RoleId='$role',ImageName='$name',MacAddress='$macaddress' where EmpId='$editid' ");
 
 				header("location:../detailview.php?employeeid=$editid");exit;
 			}
