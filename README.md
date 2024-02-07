@@ -52,5 +52,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ------------------------------------------- 
 
-###Acknowledgements
+### Acknowledgements
 This project was inspired by the need for a comprehensive Learning and Development Management Information System to streamline training processes and leave management within ESSU-Salcedo.
