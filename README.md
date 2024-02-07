@@ -1,5 +1,5 @@
 # DLDMIS
-DLDMIS (Development of a Learning And Development Management Information System) is a PHP-based software solution designed to manage employee training and leave applications within an organization.
+DLDMIS (Development of a Learning And Development Management Information System) is a PHP-based software solution designed to manage employee training and leave applications within the ESSU-Salcedo.
 
 ------------------------------------------- 
 
