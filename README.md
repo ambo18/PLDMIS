@@ -1,9 +1,9 @@
-#DLDMIS
+# DLDMIS
 DLDMIS (Development of a Learning And Development Management Information System) is a PHP-based software solution designed to manage employee training and leave applications within an organization.
 
 ------------------------------------------- 
 
-###Features
+### Features
 Employee Training Management
 Course Catalog: Maintain a catalog of available training courses, including descriptions, prerequisites, and schedules.
 Enrollment: Allow employees to enroll in training programs and manage their course registrations.
@@ -17,7 +17,7 @@ Leave Balances: Display leave balances for employees, showing the remaining days
 
 ------------------------------------------- 
 
-###Installation
+### Installation
 Clone the repository to your local machine:
 
 bash
@@ -35,7 +35,7 @@ Access the application in your web browser at http://localhost/DLDMIS (or anothe
 
 ------------------------------------------- 
 
-###Usage
+### Usage
 Employee Training Management
 Users can log in using their credentials and access the training module.
 Employees can browse the course catalog, enroll in training programs, and view their training progress.
