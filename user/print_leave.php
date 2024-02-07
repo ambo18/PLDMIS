@@ -18,7 +18,16 @@ if (isset($_GET['EmpId'])) {
     $employeeData = mysqli_fetch_assoc($employeeQuery);
 
     if ($leaveData && $employeeData) {
-        // Output employee details
+        // Output the HTML head and logo
+        echo "<html>";
+        echo "<head>";
+        echo "<title>Leave Application Details</title>";
+        echo "</head>";
+        echo "<body>";
+
+        // Add your logo with the appropriate path
+        echo '<img src="img/essu_logo.png" alt="Essu Logo" style="width: 300px; height: 110px;">'; 
+
         echo "<h2>Employee Information</h2>";
         echo "<p><strong>Employee ID:</strong> " . $employeeData['EmployeeId'] . "</p>";
         echo "<p><strong>First Name:</strong> " . $employeeData['FirstName'] . "</p>";
@@ -59,7 +68,8 @@ if (isset($_GET['EmpId'])) {
             }
         }
 
-        // You can customize the printable format based on your requirements
+        echo "</body>";
+        echo "</html>";
     } else {
         echo "<p>No leave details found for the specified employee.</p>";
     }

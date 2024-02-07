@@ -144,7 +144,7 @@
     <h5><?php echo(isset($name))?$name:"";?></h5>
   </div>
   <div class="col-md-3">
-    <h5><?php echo(isset($row['Type_of_Name']))?$row['Type_of_Name']:"";?></h5>
+    <h5><?php echo(isset($row['TypesLeaveId']))?$row['TypesLeaveId']:"";?></h5>
   </div>
   <div class="col-md-2">
     <h5><?php echo(isset($row['StateDate']))?$row['StateDate']:"";?></h5>
