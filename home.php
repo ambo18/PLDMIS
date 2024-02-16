@@ -33,37 +33,7 @@
 
 <!--four-grids here-->
 		<div class="row" style="margin-top: 20px;">
-
-					<div class="col-lg-6 col-md-6 col-sm-12">
-						<div class="panel panel-default bg-light dash-summary">
-							<div class="panel-body">
-								<a href="employeeview.php">
-									<div class="icon">
-										<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
-									</div>
-									<div class="four-text">
-										<h3>Employee</h3>
-										<h4><?php echo(isset($TotalEmploId['emp']))?$TotalEmploId['emp']:"";?></h4>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-12">
-						<div class="panel panel-default bg-light dash-summary">
-							<div class="panel-body">
-								<a href="leaverequest.php">
-									<div class="icon">
-										<i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i>
-									</div>
-									<div class="four-text">
-										<h3>Leave Request</h3>
-										<h4><?php echo(isset($tpandingleave['pleave']))?$tpandingleave['pleave']:"";?></h4>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
+		
 					<div class="clearfix"></div>
 
 					<div class="col-lg-12 bg-light" style="margin-top: 10px;">

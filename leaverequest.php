@@ -27,7 +27,7 @@
   
 ?>
 <ol class="breadcrumb" style="margin: 10px 0px ! important;">
-    <li class="breadcrumb-item"><a href="Home.php">Home</a><i class="fa fa-angle-right"></i>Leave</li>
+    <li class="breadcrumb-item"><a href="Home.php">Home</a><i class="fa fa-angle-right"></i>Faculty & Staff Application</li>
 </ol>
 <form method="POST">
 <div class="validation-form">

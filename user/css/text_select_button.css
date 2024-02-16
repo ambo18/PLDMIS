@@ -28,12 +28,17 @@ input[type=submit] {
     cursor: pointer;
 }
 
+input[type=file] {
+    width: 100%;
+    background-color: #FFFFFF;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 input[type=submit]:hover {
     background-color: #2F2B2B;
 }
-/*
-div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}*/

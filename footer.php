@@ -44,7 +44,7 @@
 												<li><a href="inquiry.php">Inquiry</a></li> -->
 											</ul>
 										</li>
-										<li><a href="leaverequest.php"><i class="fa fa-pagelines"></i><span>Leave</span></a>
+										<li><a href="leaverequest.php"><i class="fa fa-list"></i><span>Faculty & Staff Applications</span></a>
 										  
 										</li>
 
