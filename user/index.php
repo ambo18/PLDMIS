@@ -10,7 +10,7 @@ if (isset($_GET['msg'])) {
 <head>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <meta charset="UTF-8">
-    <title>Employee Login - PLDMIS</title>
+    <title>Employee Login - LDMIS</title>
     <style>
         html {
             min-height: 100%;
@@ -118,7 +118,7 @@ if (isset($_GET['msg'])) {
 
 <body>
 
-    <h1 class="text-white">Development of a Learning And Development Management Information System</h1>
+    <h1 class="text-white">Learning Development Management Information System</h1>
     <br>
     <br>
     <div class="login-block">

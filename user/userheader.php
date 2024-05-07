@@ -129,7 +129,7 @@ nav{
          <nav>
             <div class="line">
                <div class="s-12 l-5">
-                  <h3 style="color: white;">DLDMIS</h3>
+                  <h3 style="color: white;">LDMIS</h3>
                </div>
                <div class="top-nav s-12 l-3 right">
                   <div class="employee-name" style="margin-top: 5%; margin-left: 18%;">
@@ -151,16 +151,10 @@ nav{
                         <li><a href="home.php" title="Home">Home</a></li>
                         <li><a href="profile.php" title="Profile">Profile</a></li>
                         <li>
-                           <a title="Leave">Leave</a>
+                           <a title="Faculty-Development">Faculty & Staff Development</a>
                            <ul>
-                              <li><a href="applyleave.php">Apply</a></li>
-                              <li><a href="leavestatus.php">Applications</a></li>
-                           </ul>
-                        </li>
-                        <li>
-                           <a title="Faculty-Development">Faculty Development</a>
-                           <ul>
-                              <li><a href="training.php">Training/ Seminar</a></li>                             
+                              <li><a href="training.php">Training/ Seminar</a></li>
+                              <li><a href="master_doctoral.php">Doctoral/ Masteral</a></li>                                                          
                            </ul>
                         </li>
                         <li><a href="changepassword.php" title="Change Password">Password</a></li>

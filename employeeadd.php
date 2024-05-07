@@ -311,13 +311,13 @@
 
             <div class="vali-form-group">
             <div class="col-md-3 control-label">
-              <label class="control-label">Position*</label>
+              <label class="control-label">Designation*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
               <i class="fa fa-language" aria-hidden="true"></i>
               </span>
               <select name="position" title="Position" style="text-transform: capitalize;" required="">
-                <option value="">-- Select Position --</option>
+                <option value="">-- Select Designation --</option>
                 <?php while($rw = mysqli_fetch_assoc($positionn)){ ?> 
                   <option value="<?php echo $rw["PositionId"]; ?>" <?php if(isset($editemp["PositionId"]) && $editemp["PositionId"]==$rw["PositionId"]){ echo "Selected"; }?>> <?php echo $rw["Name"]; ?> </option>
                 <?php } ?>

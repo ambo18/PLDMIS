@@ -19,7 +19,7 @@
 <!--inner block end here-->
 <!--copy rights start here-->
 <div style="margin-top: -20px;" class="copyrights">
-	 <p>Development of a Learning And Development Management Information System &copy; <?= date("Y") ?></p>
+	 <p>Learning Development Management Information System &copy; <?= date("Y") ?></p>
 </div>	
 <!--COPY rights end here-->
 </div>
@@ -44,7 +44,7 @@
 												<li><a href="inquiry.php">Inquiry</a></li> -->
 											</ul>
 										</li>
-										<li><a href="faculty&staff-applications.php"><i class="fa fa-list"></i><span>Faculty & Staff Applications</span></a>
+										<li><a href="faculty&staff-applications.php"><i class="fa fa-list"></i><span>Faculty & Staff Development</span></a>
 										</li>
 
 										

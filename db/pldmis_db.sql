@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2024 at 07:11 AM
+-- Generation Time: Feb 21, 2024 at 02:22 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -118,7 +118,51 @@ INSERT INTO `dailyworkload` (`DailyWorkLoadId`, `EmpId`, `LoginDate`, `LogoutDat
 (18, '1', '2023-12-07 09:15:34', NULL, NULL),
 (19, '6231415', '2024-01-06 19:59:22', NULL, NULL),
 (20, '6231415', '2024-01-09 11:28:43', '2024-01-09 13:56:14', 148),
-(21, '1', '2024-01-09 13:56:26', NULL, NULL);
+(21, '1', '2024-01-09 13:56:26', NULL, NULL),
+(22, '1', '2024-01-17 10:07:05', NULL, NULL),
+(23, '6231415', '2024-01-17 15:19:09', '2024-01-17 15:20:06', 28424750),
+(24, '6231415', '2024-01-18 06:57:31', '2024-01-18 07:00:30', 1253),
+(25, '1', '2024-01-18 07:01:16', NULL, NULL),
+(26, '6231415', '2024-01-19 14:21:46', NULL, NULL),
+(27, '6231415', '2024-01-22 17:16:35', NULL, NULL),
+(28, '6231415', '2024-01-24 20:19:59', NULL, NULL),
+(29, '6231415', '2024-02-02 07:21:54', '2024-02-02 10:12:39', 171),
+(30, '1', '2024-02-07 10:44:40', NULL, NULL),
+(31, '6231415', '2024-02-08 20:36:55', NULL, NULL),
+(32, '6231415', '2024-02-11 18:48:36', NULL, NULL),
+(33, '6231415', '2024-02-16 08:26:42', NULL, NULL),
+(34, '6231415', '2024-02-18 15:54:49', NULL, NULL),
+(35, '6231415', '2024-02-19 20:33:29', NULL, NULL),
+(36, '6231415', '2024-02-20 13:21:14', '2024-02-20 19:25:18', 364),
+(37, '00001', '2024-02-20 18:27:29', NULL, NULL),
+(38, '240001', '2024-02-20 18:33:53', '2024-02-20 19:11:20', 37),
+(39, '240001', '2024-02-21 06:45:40', NULL, NULL),
+(40, '6231415', '2024-02-21 06:50:20', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `degreedetails`
+--
+
+CREATE TABLE `degreedetails` (
+  `Detail_Id` int(11) NOT NULL,
+  `EmpId` int(20) DEFAULT NULL,
+  `DegreeType` text DEFAULT NULL,
+  `DegreeName` text DEFAULT NULL,
+  `YearCompleted` year(4) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `degreedetails`
+--
+
+INSERT INTO `degreedetails` (`Detail_Id`, `EmpId`, `DegreeType`, `DegreeName`, `YearCompleted`) VALUES
+(2, 6231415, 'Masteral', 'Degree Name Testing', '2023'),
+(3, 240001, 'Doctoral', 'Doctoral Degree Tests', '2023'),
+(4, 240001, 'Doctoral', 'Degree Name Tests2 ', '2023'),
+(5, 240001, 'Masteral', 'Masteral1', '2023'),
+(6, 6231415, 'Doctoral', 'Doctoral Tests', '2024');
 
 -- --------------------------------------------------------
 
@@ -144,6 +188,7 @@ CREATE TABLE `employee` (
   `AadharNumber` varchar(25) NOT NULL,
   `MaritalStatus` int(11) NOT NULL,
   `PositionId` int(11) NOT NULL,
+  `AcademicRank` varchar(50) DEFAULT NULL,
   `CreatedBy` bigint(20) NOT NULL,
   `CreatedDate` datetime NOT NULL,
   `ModifiedBy` bigint(20) DEFAULT NULL,
@@ -162,11 +207,10 @@ CREATE TABLE `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`EmpId`, `EmployeeId`, `FirstName`, `MiddleName`, `LastName`, `Birthdate`, `Gender`, `Address1`, `Address2`, `Address3`, `CityId`, `Mobile`, `Email`, `Password`, `AadharNumber`, `MaritalStatus`, `PositionId`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`, `JoinDate`, `LeaveDate`, `LastLogin`, `LastLogout`, `StatusId`, `RoleId`, `ImageName`, `MacAddress`) VALUES
-(1, '1', 'ADmin', 'ADmin', 'Admin', '1994-10-09', 1, 'address1', 'address2', 'address3', 1, 9999999999, 'admin', 'admin', '', 2, 1, 1, '2017-01-01 00:00:00', 1, '2023-12-05 02:11:32', '2023-11-24', '0000-00-00', '2024-01-09 13:56:26', '2017-02-09 15:12:09', 1, 1, '140323303827user.png', ''),
-(2, '6231415', 'Krizzle', 'P', 'Picasso', '2023-10-01', 1, 'Caridad, Salcedo, Eastern Samar', 'Naparaan Salcedo Eastern Samar- ESSU', '', 1, 912345678, 'krizzle', 'krizzle', '', 2, 2, 1, '2022-10-10 08:01:43', 1, '2023-11-25 05:01:56', '2022-10-10', '0000-00-00', '2024-01-09 13:53:34', '2024-01-09 13:56:14', 1, 3, '146570290338female-avatar.png', ''),
-(15, '12345', 'First Name', 'Middle Name', 'Last Name', '2023-11-25', 1, 'Naparaan', 'Abejao', '', 2, 9111111111, 'test', 'test', '', 1, 6, 1, '2023-11-25 07:25:32', 1, '2023-11-26 09:40:24', '2023-11-25', '0000-00-00', '2023-12-05 12:26:43', '2023-12-05 12:26:48', 1, 3, '31291133615user.png', ''),
-(29, '122333', 'herod', 'balmocina', 'Tandugon', '2023-11-26', 1, 'seguinon', 'swdsxsdx', 'rgtetetwttrrw', 1, 9971478896, 'test122333', 'test122333', '', 2, 7, 1, '2023-12-07 09:13:21', 1, '2023-12-07 09:14:25', '2023-11-27', '0000-00-00', '2023-12-07 09:14:45', '2023-12-07 09:15:24', 1, 3, '194209303827user.png', '');
+INSERT INTO `employee` (`EmpId`, `EmployeeId`, `FirstName`, `MiddleName`, `LastName`, `Birthdate`, `Gender`, `Address1`, `Address2`, `Address3`, `CityId`, `Mobile`, `Email`, `Password`, `AadharNumber`, `MaritalStatus`, `PositionId`, `AcademicRank`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`, `JoinDate`, `LeaveDate`, `LastLogin`, `LastLogout`, `StatusId`, `RoleId`, `ImageName`, `MacAddress`) VALUES
+(1, '1', 'ADmin', 'ADmin', 'Admin', '1994-10-09', 1, 'address1', 'address2', 'address3', 1, 9999999999, 'admin', 'admin', '', 2, 1, NULL, 1, '2017-01-01 00:00:00', 1, '2023-12-05 02:11:32', '2023-11-24', '0000-00-00', '2024-02-21 06:51:30', '2017-02-09 15:12:09', 1, 1, '140323303827user.png', ''),
+(2, '6231415', 'Krizzle', 'P', 'Picasso', '2023-10-01', 1, 'Caridad, Salcedo, Eastern Samar', 'Naparaan Salcedo Eastern Samar- ESSU', '', 1, 912345678, 'krizzle', 'krizzle', '', 2, 2, 'Teacher I', 1, '2022-10-10 08:01:43', 1, '2024-02-02 10:39:19', '2022-10-10', '2024-11-02', '2024-02-21 06:50:20', '2024-02-20 19:25:18', 1, 3, '146570290338female-avatar.png', ''),
+(30, '240001', 'Hershey', 'R', 'Alburo', '1987-02-01', 2, 'Brgy.01 Mercedes Eastern Samar', 'Brgy. Naparaan Salcedo Eastern Samar', '', 2, 9971478896, 'hershey', 'hershey', '', 1, 2, 'Teacher 1', 3, '2024-02-20 06:26:22', 3, '2024-02-20 06:31:52', '2019-02-01', '0000-00-00', '2024-02-21 06:45:40', '2024-02-20 19:11:20', 1, 3, '282895290338female-avatar.png', '');
 
 -- --------------------------------------------------------
 
@@ -214,8 +258,8 @@ INSERT INTO `leavedays` (`LeaveDayId`, `LeaveDay`) VALUES
 CREATE TABLE `leavedetails` (
   `Detail_Id` bigint(20) NOT NULL,
   `EmpId` bigint(20) NOT NULL,
-  `TypesLeaveId` int(10) NOT NULL,
-  `Reason` varchar(500) NOT NULL,
+  `TypesLeaveId` varchar(20) NOT NULL,
+  `Commutation` varchar(20) NOT NULL,
   `StateDate` date NOT NULL,
   `EndDate` date NOT NULL,
   `LeaveStatus` varchar(50) NOT NULL
@@ -225,11 +269,13 @@ CREATE TABLE `leavedetails` (
 -- Dumping data for table `leavedetails`
 --
 
-INSERT INTO `leavedetails` (`Detail_Id`, `EmpId`, `TypesLeaveId`, `Reason`, `StateDate`, `EndDate`, `LeaveStatus`) VALUES
-(1, 6231415, 3, 'Sample Reason', '2022-10-12', '2022-10-14', 'Accept'),
-(2, 1, 5, 'sick', '2023-11-21', '2023-11-22', 'Accept'),
-(3, 54321, 1, 'Sick', '2023-11-27', '2023-11-30', 'Denied'),
-(12, 122333, 4, 'sncvbbfb', '2023-12-05', '2023-12-05', 'Denied');
+INSERT INTO `leavedetails` (`Detail_Id`, `EmpId`, `TypesLeaveId`, `Commutation`, `StateDate`, `EndDate`, `LeaveStatus`) VALUES
+(19, 6231415, 'Sick Leave', 'Requested', '2024-01-20', '2024-01-21', 'Denied'),
+(20, 6231415, 'Vacation Leave', 'Requested', '2023-10-22', '2023-11-22', 'Accept'),
+(21, 1, 'Study Leave', 'Requested', '2024-02-08', '2024-02-10', 'Pending'),
+(22, 1, 'Paternity Leave', 'Requested', '2024-02-20', '2024-02-24', 'Pending'),
+(23, 1, 'Sick Leave', 'Requested', '2024-02-08', '2024-02-10', 'Denied'),
+(24, 6231415, 'Sick Leave', 'Requested', '2024-02-16', '2024-02-17', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -249,6 +295,18 @@ CREATE TABLE `maritalstatus` (
 INSERT INTO `maritalstatus` (`MaritalId`, `Name`) VALUES
 (1, 'Married'),
 (2, 'Unmarried');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `otherleave`
+--
+
+CREATE TABLE `otherleave` (
+  `Id` int(11) NOT NULL,
+  `EmpId` int(20) DEFAULT NULL,
+  `OtherLeave` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -331,6 +389,41 @@ INSERT INTO `seminardetails` (`Detail_Id`, `EmpId`, `SeminarType`, `date`, `Prog
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sickleave`
+--
+
+CREATE TABLE `sickleave` (
+  `Id` int(11) NOT NULL,
+  `EmpId` int(20) DEFAULT NULL,
+  `DetailsLeave` varchar(20) DEFAULT NULL,
+  `Illness` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sickleave`
+--
+
+INSERT INTO `sickleave` (`Id`, `EmpId`, `DetailsLeave`, `Illness`) VALUES
+(7, 6231415, 'In Hospital', 'hiranat'),
+(8, 1, '-- Select Details Le', ''),
+(9, 6231415, 'In Hospital', 'yyhuhu');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `specialprivilegeleave`
+--
+
+CREATE TABLE `specialprivilegeleave` (
+  `Id` int(11) NOT NULL,
+  `EmpId` int(20) DEFAULT NULL,
+  `DetailsLeave` varchar(20) DEFAULT NULL,
+  `Location` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `state`
 --
 
@@ -377,18 +470,23 @@ CREATE TABLE `trainingdetails` (
   `Detail_Id` int(11) NOT NULL,
   `EmpId` int(20) DEFAULT NULL,
   `TrainingType` text DEFAULT NULL,
+  `Type_of_seminar_training` varchar(50) DEFAULT NULL,
+  `CurrentStatus` varchar(100) DEFAULT NULL,
+  `TargetStatus` varchar(100) DEFAULT NULL,
+  `Objectives` text DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `Progress` int(3) DEFAULT NULL
+  `certificate` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `trainingdetails`
 --
 
-INSERT INTO `trainingdetails` (`Detail_Id`, `EmpId`, `TrainingType`, `date`, `Progress`) VALUES
-(11, 6231415, 'Training2', '2024-01-02', 40),
-(12, 6231415, 'Training3', '2024-01-03', 80),
-(13, 1, 'Trainingadmin1', '2024-01-01', 10);
+INSERT INTO `trainingdetails` (`Detail_Id`, `EmpId`, `TrainingType`, `Type_of_seminar_training`, `CurrentStatus`, `TargetStatus`, `Objectives`, `date`, `certificate`) VALUES
+(35, 1, 'wwqewe', 'Technical', 'wds', 'efdfdf', NULL, '2024-02-10', 'rjhel.jpg'),
+(40, 6231415, 'Seminar Testing', 'Managerial', 'Status 1', 'Status 2', NULL, '2024-02-10', 'shoe11.jpg'),
+(41, 6231415, 'Training Testing', 'Foundational', 'Current Status Testing', 'Target Status Testing', 'Objectives Testing', '2024-02-19', '290338female-avatar.png'),
+(42, 240001, 'Testing Training', 'Foundational', 'Current Testing', 'Target Testing', 'Objectives Testing', '2024-02-19', 'bg.jpg');
 
 -- --------------------------------------------------------
 
@@ -406,10 +504,57 @@ CREATE TABLE `type_of_leave` (
 --
 
 INSERT INTO `type_of_leave` (`LeaveId`, `Type_of_Name`) VALUES
-(1, 'sick leave'),
-(3, 'casual leave'),
-(4, 'privilege leave'),
-(5, 'half day leave');
+(4, 'Manadatory/Forced Leave'),
+(5, 'Maternity Leave'),
+(6, 'Paternity Leave'),
+(8, 'Solo Parent Leave'),
+(9, 'Study Leave'),
+(10, '10 Day VAWC Leave'),
+(11, 'Rehabilitation Privilege'),
+(12, 'Special Leave Benefits for Women'),
+(13, 'Special Emergency (Calamity) Leave'),
+(14, 'Adoption Leave');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `type_of_seminar_training`
+--
+
+CREATE TABLE `type_of_seminar_training` (
+  `seminar_trainingID` int(11) NOT NULL,
+  `Type_of_seminar_training` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `type_of_seminar_training`
+--
+
+INSERT INTO `type_of_seminar_training` (`seminar_trainingID`, `Type_of_seminar_training`) VALUES
+(1, 'Technical'),
+(2, 'Managerial'),
+(3, 'Supervisory'),
+(4, 'Foundational');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vacationleave`
+--
+
+CREATE TABLE `vacationleave` (
+  `Id` int(11) NOT NULL,
+  `EmpId` int(20) DEFAULT NULL,
+  `DetailsLeave` varchar(20) DEFAULT NULL,
+  `Location` int(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `vacationleave`
+--
+
+INSERT INTO `vacationleave` (`Id`, `EmpId`, `DetailsLeave`, `Location`) VALUES
+(6, 6231415, 'Abroad', 0);
 
 --
 -- Indexes for dumped tables
@@ -432,6 +577,12 @@ ALTER TABLE `country`
 --
 ALTER TABLE `dailyworkload`
   ADD PRIMARY KEY (`DailyWorkLoadId`);
+
+--
+-- Indexes for table `degreedetails`
+--
+ALTER TABLE `degreedetails`
+  ADD PRIMARY KEY (`Detail_Id`);
 
 --
 -- Indexes for table `employee`
@@ -466,6 +617,12 @@ ALTER TABLE `maritalstatus`
   ADD PRIMARY KEY (`MaritalId`);
 
 --
+-- Indexes for table `otherleave`
+--
+ALTER TABLE `otherleave`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- Indexes for table `personnel`
 --
 ALTER TABLE `personnel`
@@ -488,6 +645,18 @@ ALTER TABLE `role`
 --
 ALTER TABLE `seminardetails`
   ADD PRIMARY KEY (`Detail_Id`);
+
+--
+-- Indexes for table `sickleave`
+--
+ALTER TABLE `sickleave`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `specialprivilegeleave`
+--
+ALTER TABLE `specialprivilegeleave`
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `state`
@@ -514,6 +683,18 @@ ALTER TABLE `type_of_leave`
   ADD PRIMARY KEY (`LeaveId`);
 
 --
+-- Indexes for table `type_of_seminar_training`
+--
+ALTER TABLE `type_of_seminar_training`
+  ADD PRIMARY KEY (`seminar_trainingID`);
+
+--
+-- Indexes for table `vacationleave`
+--
+ALTER TABLE `vacationleave`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -533,13 +714,19 @@ ALTER TABLE `country`
 -- AUTO_INCREMENT for table `dailyworkload`
 --
 ALTER TABLE `dailyworkload`
-  MODIFY `DailyWorkLoadId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `DailyWorkLoadId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT for table `degreedetails`
+--
+ALTER TABLE `degreedetails`
+  MODIFY `Detail_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `EmpId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `EmpId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `gender`
@@ -557,7 +744,13 @@ ALTER TABLE `leavedays`
 -- AUTO_INCREMENT for table `leavedetails`
 --
 ALTER TABLE `leavedetails`
-  MODIFY `Detail_Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `Detail_Id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `otherleave`
+--
+ALTER TABLE `otherleave`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `personnel`
@@ -578,6 +771,18 @@ ALTER TABLE `seminardetails`
   MODIFY `Detail_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `sickleave`
+--
+ALTER TABLE `sickleave`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `specialprivilegeleave`
+--
+ALTER TABLE `specialprivilegeleave`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `state`
 --
 ALTER TABLE `state`
@@ -587,13 +792,25 @@ ALTER TABLE `state`
 -- AUTO_INCREMENT for table `trainingdetails`
 --
 ALTER TABLE `trainingdetails`
-  MODIFY `Detail_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Detail_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `type_of_leave`
 --
 ALTER TABLE `type_of_leave`
-  MODIFY `LeaveId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `LeaveId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `type_of_seminar_training`
+--
+ALTER TABLE `type_of_seminar_training`
+  MODIFY `seminar_trainingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `vacationleave`
+--
+ALTER TABLE `vacationleave`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

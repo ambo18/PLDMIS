@@ -5,7 +5,7 @@
       <footer class="box" style="position: fixed; bottom: 0;">
          <div class="line">
             <div class="s-12 l-12" align="center">
-               <p>Development of a Learning And Development Management Information System &copy; <?= date("Y") ?></p>
+               <p>Learning Development Management Information System &copy; <?= date("Y") ?></p>
             </div>
          </div>
       </footer>

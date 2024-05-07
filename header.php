@@ -142,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                <!--header start here-->
 				<div class="header-main">
 					<div style="padding: 1.15em; margin-right: 0%; width: 70%;" class="logo-w3-agile">
-						<h1 class="text-white">DLDMIS</h1>
+						<h1 class="text-white">LDMIS</h1>
 					</div>
 						<div class="profile_details w3l" style="float: right; width: 29%;">		
 								<ul>

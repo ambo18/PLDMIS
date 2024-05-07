@@ -1,130 +1,132 @@
 <?php include('header.php');?>
 <?php
-    include_once('controller/connect.php');
-    
-    $dbs = new database();
-    $db = $dbs->connection();
+  include_once('controller/connect.php');
+  
+  $dbs = new database();
+  $db = $dbs->connection();
 
-    $page = "";
-    $EmpId = $_SESSION['User']['EmployeeId'];
+  $pageTraining = "";
+  $pageDegrees = "";
+  $EmpId = $_SESSION['User']['EmployeeId'];
 
-    // Retrieve total number of records
-    $SearchName = isset($_GET['search']) ? $_GET['search'] : '';
-    $total_query = mysqli_query($db, "SELECT COUNT(Detail_Id) as total FROM trainingdetails WHERE EmpId = '$EmpId' AND TrainingType LIKE '%$SearchName%'"); 
-    $total_result = mysqli_fetch_array($total_query);
-    $total_records = $total_result['total'];
+  // Retrieve total number of records for training/seminars
+  $SearchName = isset($_GET['search']) ? $_GET['search'] : '';
+  $total_query = mysqli_query($db, "SELECT COUNT(Detail_Id) as total FROM trainingdetails WHERE EmpId = '$EmpId' AND TrainingType LIKE '%$SearchName%'"); 
+  $total_result = mysqli_fetch_array($total_query);
+  $total_records = $total_result['total'];
 
-    $RecordeLimit = 10;
+  // Retrieve total number of records for doctoral/masteral degrees
+  $SearchDegree = isset($_GET['search2']) ? $_GET['search2'] : '';
+  $total_query2 = mysqli_query($db, "SELECT COUNT(Detail_Id) as total FROM degreedetails WHERE EmpId = '$EmpId' AND DegreeType LIKE '%$SearchDegree%'"); 
+  $total_result2 = mysqli_fetch_array($total_query2);
+  $total_records2 = $total_result2['total'];
 
-    // Retrieve data based on EmpId
-    $sql = mysqli_query($db, "SELECT * FROM trainingdetails WHERE EmpId = '$EmpId' AND TrainingType LIKE '%$SearchName%' LIMIT $RecordeLimit");
+  $RecordLimit = 10;
 
-    for ($i = 0; $i < ceil($total_records / $RecordeLimit); $i++) {
-        $d = $i + 1;
-        $page .= "<a href='?bn=$d'>$d</a>&nbsp &nbsp &nbsp";
-    }
+  // Retrieve data based on EmpId for training/seminars
+  $sql = mysqli_query($db, "SELECT * FROM trainingdetails WHERE TrainingType LIKE '%$SearchName%' LIMIT $RecordLimit");
+
+  // Retrieve data based on EmpId for doctoral/masteral degrees
+  $sql2 = mysqli_query($db, "SELECT * FROM degreedetails WHERE DegreeType LIKE '%$SearchDegree%' LIMIT $RecordLimit");
+
+  for ($i = 0; $i < ceil($total_records / $RecordLimit); $i++) {
+      $d = $i + 1;
+      $pageTraining .= "<a href='?search=$SearchName&bn=$d'>$d</a>&nbsp &nbsp &nbsp";
+  }
+
+  for ($i2 = 0; $i2 < ceil($total_records2 / $RecordLimit); $i2++) {
+      $d2 = $i2 + 1;
+      $pageDegrees .= "<a href='?search2=$SearchDegree&bn=$d2'>$d2</a>&nbsp &nbsp &nbsp";
+  }
 ?>
+
 <ol class="breadcrumb" style="margin: 10px 0px ! important;">
-    <li class="breadcrumb-item"><a href="Home.php">Home</a><i class="fa fa-angle-right"></i>Faculty & Staff Application</li>
+    <li class="breadcrumb-item"><a href="Home.php">Home</a><i class="fa fa-angle-right"></i>Faculty & Staff Development</li>
 </ol>
-<link rel="stylesheet" type="text/css" href="css/table-style.css" />
-<!-- <link rel="stylesheet" type="text/css" href="css/basictable.css" /> -->
-<script type="text/javascript" src="js/jquery.basictable.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#table').basictable();
+<form method="GET">
+    <div class="validation-form">
+        <input type="text" style="float: right;" placeholder="Search" value="<?php echo (isset($_GET['search'])) ? $_GET['search'] : ''; ?>" name="search"><br>
+        <h2>Training/Seminars</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="background: #202a29;">Name of Employee</th>
+                        <th style="background: #202a29;">Seminar/Training Title</th>
+                        <th style="background: #202a29;">Seminar/Training Type</th>
+                        <th style="background: #202a29;">Current Status</th>
+                        <th style="background: #202a29;">Target Status</th>
+                        <th style="background: #202a29;">Location</th>
+                        <th style="background: #202a29;">Sponsor Agency</th>
+                        <th style="background: #202a29;">Category</th>
+                        <th style="background: #202a29;">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Modify the SQL query to join with the employee table
+                    $sql = mysqli_query($db, "SELECT t.*, e.FirstName, e.MiddleName, e.LastName FROM trainingdetails t INNER JOIN employee e ON t.EmpId = e.EmployeeId WHERE t.TrainingType LIKE '%$SearchName%' LIMIT $RecordLimit");
 
-        $('#table-breakpoint').basictable({
-            breakpoint: 768
-        });
-
-        $('#table-swap-axis').basictable({
-            swapAxis: true
-        });
-
-        $('#table-force-off').basictable({
-            forceResponsive: false
-        });
-
-        $('#table-no-resize').basictable({
-            noResize: true
-        });
-
-        $('#table-two-axis').basictable();
-
-        $('#table-max-height').basictable({
-            tableWrapper: true
-        });
-    });
-</script>
-
-<div class="validation-form">
-    <div>
-        <div class="w3l-table-info">
-            <h2>Training/Seminar Attended</h2>
-            <br>
-            <div class="s-12 l-10">
-                <form method="GET" action="#">
-                    <input type="search-box" style="float: right;" placeholder="Search" value="<?php echo (isset($_GET['search'])) ? $_GET['search'] : ''; ?>" type="text" name="search"><br>
-                </form>
-                <table id="table">
-                    <thead>
+                    while ($row = mysqli_fetch_assoc($sql)) {
+                        ?>
                         <tr>
-                            <th style="text-transform: capitalize;">Seminar/Training Title</th>
-                            <th style="text-transform: capitalize;">Seminar/Training Type</th>
-                            <th style="text-transform: capitalize;">Current Status</th>
-                            <th style="text-transform: capitalize;">Target Status</th>
-                            <th style="text-transform: capitalize;">Date</th>                           
+                            <!-- Concatenate first name, middle name, and last name to display the employee's full name -->
+                            <td><?php echo $row['FirstName'] . ' ' . $row['MiddleName'] . ' ' . $row['LastName']; ?></td>
+                            <td><?php echo $row['TrainingType']; ?></td>
+                            <td><?php echo $row['Type_of_seminar_training']; ?></td>
+                            <td><?php echo $row['CurrentStatus']; ?></td>
+                            <td><?php echo $row['TargetStatus']; ?></td>
+                            <td><?php echo $row['Location']; ?></td>
+                            <td><?php echo $row['SponsorAgency']; ?></td>
+                            <td><?php echo $row['Category']; ?></td>
+                            <td><?php echo $row['date']; ?></td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <?php while ($row = mysqli_fetch_assoc($sql)) { ?>
-                            <tr>
-                                <td><?php echo $row['TrainingType']; ?></td>
-                                <td><?php echo $row['Type_of_seminar_training']; ?></td>
-                                <td><?php echo $row['CurrentStatus']; ?></td>
-                                <td><?php echo $row['TargetStatus']; ?></td>
-                                <td><?php echo $row['date']; ?></td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-            <div><?php echo $page; ?></div>
+                    <?php } ?>
+                </tbody>
+            </table>
         </div>
+        <div><?php echo $pageTraining; ?></div>
     </div>
-</div>
-</div>
-<!-- The Modal -->
-<div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01">
-    <div id="caption"></div>
-</div>
+</form>
 
-<!--image Popup-->
-<script>
-    // Get the modal
-    var modal = document.getElementById('myModal');
+<form method="GET">
+    <div class="validation-form" style="margin-top: 30px;">
+        <input type="text" style="float: right;" placeholder="Search" value="<?php echo (isset($_GET['search2'])) ? $_GET['search2'] : ''; ?>" name="search2"><br>
+        <h2>Doctoral/Masteral</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="background: #202a29;">Name of Employee</th>
+                        <th style="background: #202a29;">Degree Type</th>
+                        <th style="background: #202a29;">Degree Name</th>
+                        <th style="background: #202a29;">Units</th>
+                        <th style="background: #202a29;">Location</th>
+                        <th style="background: #202a29;">Year Completed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Modify the SQL query to join with the employee table
+                    $sql2 = mysqli_query($db, "SELECT d.*, e.FirstName, e.MiddleName, e.LastName FROM degreedetails d INNER JOIN employee e ON d.EmpId = e.EmployeeId WHERE d.DegreeType LIKE '%$SearchDegree%' LIMIT $RecordLimit");
 
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById('myImg');
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    img.onclick = function () {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-    }
+                    while ($row = mysqli_fetch_assoc($sql2)) { ?>
+                        <tr>
+                            <!-- Concatenate first name, middle name, and last name to display the employee's full name -->
+                            <td><?php echo $row['FirstName'] . ' ' . $row['MiddleName'] . ' ' . $row['LastName']; ?></td>
+                            <td><?php echo $row['DegreeType']; ?></td>
+                            <td><?php echo $row['DegreeName']; ?></td>
+                            <td><?php echo $row['Units']; ?></td>
+                            <td><?php echo $row['Location']; ?></td>
+                            <td><?php echo $row['YearCompleted']; ?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+        <div><?php echo $pageDegrees; ?></div>
+    </div>
+    <div class="clearfix"></div>
+</form>
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-</script>
 <?php include('footer.php'); ?>
-
-

@@ -27,13 +27,6 @@ $db = $dbs->connection();
 $pending = 0;
 $accepted = 0;
 $EmpId = $_SESSION['User']['EmployeeId'];
-$pending_sql = "SELECT Detail_Id FROM `leavedetails` WHERE EmpId = '{$EmpId}' AND `LeaveStatus` = 'Pending'";
-$pending_qry = mysqli_query($db, $pending_sql);
-$pending = $pending_qry->num_rows;
-
-$accepted_sql = "SELECT Detail_Id FROM `leavedetails` WHERE EmpId = '{$EmpId}' AND `LeaveStatus` = 'Accept'";
-$accepted_qry = mysqli_query($db, $accepted_sql);
-$accepted = $accepted_qry->num_rows;
 
 // Technical
 $technical_sql = "SELECT * FROM `trainingdetails` WHERE EmpId = '{$EmpId}' AND `Type_of_seminar_training` = 'Technical'";
@@ -54,25 +47,28 @@ $supervisory = $supervisory_qry->num_rows;
 $foundational_sql = "SELECT * FROM `trainingdetails` WHERE EmpId = '{$EmpId}' AND `Type_of_seminar_training` = 'Foundational'";
 $foundational_qry = mysqli_query($db, $foundational_sql);
 $foundational = $foundational_qry->num_rows;
+
+// Masteral
+$masteral_sql = "SELECT * FROM `degreedetails` WHERE EmpId = '{$EmpId}' AND DegreeType = 'Masteral'";
+$masteral_qry = mysqli_query($db, $masteral_sql);
+$masteral = $masteral_qry->num_rows;
+
+// Doctoral
+$doctoral_sql = "SELECT * FROM `degreedetails` WHERE EmpId = '{$EmpId}' AND DegreeType = 'Doctoral'";
+$doctoral_qry = mysqli_query($db, $doctoral_sql);
+$doctoral = $doctoral_qry->num_rows;
 ?>
 
 <div class="s-12 l-10">
     <div class="clearfix"></div>
 </div>
 
-<div class="s-12 dash-summary">
-    <div class="dash-panel">
-        <h3>No. of Pending Applications</h3>
-        <h4 align="right"><?= number_format($pending) ?></h4>
-    </div>
-    <div class="dash-panel">
-        <h3>No. of Accepted Applications</h3>
-        <h4 align="right"><?= number_format($accepted) ?></h4>
-    </div>
+<div class="s-12 l-10" style="margin-top: 20px; background: #fff;">
+    <canvas id="myBarChart" width="800" height="200"></canvas>
 </div>
 
 <div class="s-12 l-10" style="margin-top: 20px; background: #fff;">
-    <canvas id="myBarChart" width="800" height="300"></canvas>
+    <canvas id="masteral_doctoralChart" width="800" height="200"></canvas>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -106,6 +102,45 @@ $foundational = $foundational_qry->num_rows;
                 data: [0, 0, 0, <?= $foundational ?>],
                 backgroundColor: 'rgba(75, 192, 192, 0.7)',
                 borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                }
+            }
+        }
+    });
+</script>
+
+<script>
+    var ctx = document.getElementById('masteral_doctoralChart').getContext('2d');
+    var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Masteral', 'Doctoral'],
+            datasets: [{
+                label: 'Masteral',
+                data: [<?= $masteral ?>, 0, 0, 0],
+                backgroundColor: ['rgba(255, 0, 0, 0.7)', 'rgba(154, 205, 50, 0.7)', 'rgba(255, 0, 0, 0.7)', 'rgba(154, 205, 50, 0.7)'],
+                borderColor: ['rgba(255, 0, 0, 1)', 'rgba(154, 205, 50, 1)', 'rgba(255, 0, 0, 1)', 'rgba(154, 205, 50, 1)'],
+                borderWidth: 1
+            }, {
+                label: 'Doctoral',
+                data: [0, <?= $doctoral ?>, 0, 0],
+                backgroundColor: ['rgba(0, 255, 0, 0.7)', 'rgba(0, 255, 0, 0.7)', 'rgba(0, 255, 0, 0.7)', 'rgba(0, 255, 0, 0.7)'],
+                borderColor: ['rgba(0, 255, 0, 1)', 'rgba(0, 255, 0, 1)', 'rgba(0, 255, 0, 1)', 'rgba(0, 255, 0, 1)'],
                 borderWidth: 1
             }]
         },

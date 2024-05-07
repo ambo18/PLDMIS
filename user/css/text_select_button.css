@@ -1,4 +1,4 @@
-input[type=text],[type=date],[type=number],[type=email],[type=Password],[type=Search], select{
+input[type=text],[type=date],[type=number],[type=email],[type=Password],[type=Search],[type=checkbox],[type=year], select{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

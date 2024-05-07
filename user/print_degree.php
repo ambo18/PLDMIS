@@ -48,10 +48,10 @@
         $db = $dbs->connection();
 
         if (isset($_GET['detailId'])) {
-            $detailId = $_GET['detailId'];
+            $degreeId = $_GET['detailId'];
 
-            // Fetch employee ID from trainingdetails table
-            $empIdResult = mysqli_query($db, "SELECT EmpId FROM trainingdetails WHERE Detail_Id = '$detailId'");
+            // Fetch employee ID from degreedetails table
+            $empIdResult = mysqli_query($db, "SELECT EmpId FROM degreedetails WHERE Detail_Id = '$degreeId'");
             $empIdData = mysqli_fetch_assoc($empIdResult);
             $empId = $empIdData['EmpId'];
 
@@ -60,7 +60,7 @@
             $employeeData = mysqli_fetch_assoc($employeeQuery);
 
             // Check if mysqli_query was successful
-            $result = mysqli_query($db, "SELECT * FROM trainingdetails WHERE Detail_Id = '$detailId'");
+            $result = mysqli_query($db, "SELECT * FROM degreedetails WHERE Detail_Id = '$degreeId'");
             if ($result) {
                 // Check if a row was fetched
                 $row = mysqli_fetch_assoc($result);
@@ -74,12 +74,12 @@
                     echo "<p><strong>Current Position</strong>: {$employeeData['AcademicRank']} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Recent Performance rating</strong>: {$row['PerformanceRating']}</p>";
                     echo "</div>";
                     echo "<table>";
-                    echo "<tr><th colspan='4'>TRAINING AND SEMINAR DETAILS</th></tr>";
-                    echo "<tr><th>Training/Seminar Type</th><th>Current Status<br>Current<br>Current Competency Level</th><th>TARGET STATUS TARGET<br>COMPENTENCY LEVEL</th><th>OBJECTIVES</th></tr>";
-                    echo "<tr><td>{$row['Type_of_seminar_training']}</td><td>{$row['CurrentStatus']}</td><td>{$row['TargetStatus']}</td><td>{$row['Objectives']}</td></tr>";
+                    echo "<tr><th colspan='3'>DEGREE DETAILS</th></tr>";
+                    echo "<tr><th>Degree Type</th><th>Degree Name</th><th>Year Completed</th></tr>";
+                    echo "<tr><td>{$row['DegreeType']}</td><td>{$row['DegreeName']}</td><td>{$row['YearCompleted']}</td></tr>";
                     echo "</table>";
                 } else {
-                    echo "<p>No data found for the specified detailId</p>";
+                    echo "<p>No data found for the specified degreeId</p>";
                 }
             } else {
                 echo "<p>Error fetching data from the database</p>";

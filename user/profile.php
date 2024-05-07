@@ -108,7 +108,10 @@
                  				<td style="text-align: right;"><b>Position :</b></td>
                  				<td><?php echo(isset($positionn['Name']))?ucfirst($positionn['Name']):"Null";?></td>
                  			</tr>
-                 			
+                 			<tr>
+                 				<td style="text-align: right;"><b>Academic Rank :</b></td>
+                 				<td><?php echo(isset($_SESSION['User']['AcademicRank']))?$_SESSION['User']['AcademicRank']:"Null";?></td>
+                 			</tr>
                  		</tbody>
                  	</table>
                	</div>
