@@ -20,8 +20,6 @@ Leave Balances: Display leave balances for employees, showing the remaining days
 ### Installation
 Clone the repository to your local machine:
 
-bash
-Copy code
 git clone https://github.com/ambo18/PLDMIS.git
 Move the project folder to the htdocs directory of your XAMPP installation.
 
