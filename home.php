@@ -45,11 +45,21 @@
 
 					<div class="col-lg-12 bg-light" style="margin-top: 10px;">
 						<h3>Employees Training/Seminar Attended</h3>
+						<div>
+							<p>Total Technical: <?php echo $technical; ?></p>
+							<p>Total Managerial: <?php echo $managerial; ?></p>
+							<p>Total Supervisory: <?php echo $supervisory; ?></p>
+							<p>Total Foundational:  <?php echo $foundational; ?></p>
+						</div>
 						<canvas id="myBarChart" width="800" height="150"></canvas>
 					</div>
 
 					<div class="col-lg-12 bg-light" style="margin-top: 10px;">
 						<h3>Employees Doctoral/Masteral Attended</h3>
+						<div>
+							<p>Total Masteral: <?php echo $masteral; ?></p>
+							<p>Total Doctoral: <?php echo $doctoral; ?></p>
+						</div>
 						<canvas id="masteral_doctoralChart" width="800" height="150"></canvas>
 					</div>
 

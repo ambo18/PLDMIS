@@ -157,7 +157,7 @@ nav{
                               <li><a href="master_doctoral.php">Doctoral/ Masteral</a></li>                                                          
                            </ul>
                         </li>
-                        <li><a href="changepassword.php" title="Change Password">Password</a></li>
+                        <li><a href="changepassword.php" title="Setting">Setting</a></li>
                      </ul>
                   </div>
                </aside>

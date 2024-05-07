@@ -31,11 +31,8 @@
   else if (isset($_GET['empid'])) 
   {
     $empid = $_GET['empid'];
-    $editempid = mysqli_query($db,"SELECT e.*,ss.StateId,cc.CountryId FROM employee e join city c on e.CityId=c.CityId join state ss on c.StateId=ss.StateId join country cc on cc.CountryId=ss.CountryId where EmpId='$empid'");
+    $editempid = mysqli_query($db,"SELECT * FROM employee where EmpId='$empid'");
     $editemp = mysqli_fetch_assoc($editempid);
-    $CountryId = $editemp["CountryId"];
-    $StateId = $editemp['StateId'];
-    $CityId = $editemp['CityId'];
   }  
 ?>
 <ol class="breadcrumb" style="margin: 10px 0px ! important;">
@@ -165,152 +162,7 @@
               </div>
             </div>
 
-            
-            </div>
-            <div class="clearfix"> </div>
-
-            <div class="col-md-12 control-label">
-              <label class="control-label">Address 1*</label>
-              <div class="input-group">   
-              <span class="input-group-addon">
-              <i class="fa fa-pencil " aria-hidden="true"></i>
-              </span>          
-              <input type="text" name="address1" title="Address 1" value="<?php echo(isset($editemp["Address1"]))?$editemp["Address1"]:""; ?>" class="form-control" placeholder="Address Line 1" required="">
-              </div>
-            </div>
-            <div class="clearfix"> </div>
-
-            <div class="col-md-12 control-label">
-              <label class="control-label">Address 2*</label>
-              <div class="input-group">
-              <span class="input-group-addon">
-              <i class="fa fa-pencil " aria-hidden="true"></i>
-              </span>
-                          
-              <input type="text" name="address2" title="Address 2" value="<?php echo(isset($editemp["Address2"]))?$editemp["Address2"]:""; ?>" class="form-control" placeholder="Address Line 2" required>
-              </div>
-            </div>
-            <div class="clearfix"> </div>
-            <div class="col-md-12 control-label">
-              <label class="control-label">Address 3</label>
-              <div class="input-group"> 
-              <span class="input-group-addon">
-              <i class="fa fa-pencil " aria-hidden="true"></i>
-              </span>            
-              <input type="text" name="address3" title="Address 3" value="<?php echo(isset($editemp["Address3"]))?$editemp["Address3"]:""; ?>" class="form-control" placeholder="Address Line 3">
-              </div>
-            </div>
-            <div class="clearfix"> </div>
-
-
-
-            <div class="vali-form-group">
-            <div class="col-md-3 control-label">
-              <label class="control-label">Country*</label>
-              <div class="input-group">             
-                  <span class="input-group-addon">
-              <i class="fa fa-globe" aria-hidden="true"></i>
-              </span>
-              <select name="country" id="contryid" title="Country" required="" onchange="contrychange()" style="text-transform: capitalize;">
-                <option value="">-- Select Country --</option>
-                <?php while($rw = mysqli_fetch_assoc($countryn)){ ?> 
-                  <option value="<?php echo $rw["CountryId"]; ?>" <?php if(isset($editemp["CountryId"]) && $editemp["CountryId"]==$rw["CountryId"]){ echo "Selected"; }?>> <?php echo $rw["Name"]; ?> </option>
-                <?php } ?>
-              </select>
-              </div>
-            </div>
-
-            <div class="col-md-3 control-label">
-              <label class="control-label">State*</label>
-              <div class="input-group">             
-                  <span class="input-group-addon">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              </span>
-              <select name="state" id="stateid" title="State" onchange="statechange()" required="" style="text-transform: capitalize;">
-                <option value="">-- Select State --</option>
-              </select>
-              </div>
-            </div>
-
-            <div class="col-md-3 control-label">
-              <label class="control-label">City*</label>
-              <div class="input-group">             
-                  <span class="input-group-addon">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              </span>
-              <select name="city" id="cityid" title="City" required="" style="text-transform: capitalize;">
-                <option value="">-- Select City --</option> 
-              </select>
-              </div>
-            </div>
-              <div class="clearfix"> </div>
-            </div>
-
-            <div class="vali-form-group">
-            <div class="col-md-3 control-label">
-              <label class="control-label">Join Date*</label>
-              <div class="input-group">             
-                  <span class="input-group-addon">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              </span>
-              <input type="text" id="JoinDate" title="Join Date" name="joindate" placeholder="Join Date" value="<?php echo(isset($editemp["JoinDate"]))?$editemp["JoinDate"]:""; ?>" class="form-control" required="" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')">
-              </div>
-            </div>
-
-            <div class="col-md-3 control-label">
-              <label class="control-label">Leave Date</label>
-              <div class="input-group">             
-                  <span class="input-group-addon">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              </span>
-              <input type="text" id="LeaveDate" title="Leave Date" name="leavedate" placeholder="Leave Date" value="<?php echo(isset($editemp["LeaveDate"]))?$editemp["LeaveDate"]:""; ?>" class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')">
-              </div>
-            </div>
-
-            <div class="col-md-3 control-label">
-              <label class="control-label">Status</label>
-              <div class="input-group">             
-                  <span class="input-group-addon">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              </span>
-              <select name="status" title="Status" required="" style="text-transform: capitalize;">
-                <option value="">-- Select Status --</option>
-                <?php while($rw = mysqli_fetch_assoc($statusn)){ ?> 
-                  <option value="<?php echo $rw["StatusId"]; ?>" <?php if(isset($editemp["StatusId"]) && $editemp["StatusId"]==$rw["StatusId"]){ echo "Selected"; }?>> <?php echo $rw["Name"]; ?> </option>
-                <?php } ?>
-              </select>
-              </div>
-            </div>
-
-            <?php
-            if (!isset($editemp["RoleId"]) || $editemp["RoleId"] != 1) {
-            ?>
-                <div class="col-md-3 control-label">
-                    <label class="control-label">Role*</label>
-                    <div class="input-group">             
-                        <span class="input-group-addon">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                        </span>
-                        <select name="role" required="" title="Role" style="text-transform: capitalize;"  >
-                            <option value="">-- Select Role --</option>
-                            <?php
-                            while($rw = mysqli_fetch_assoc($rolen)){
-                                $disabled = ($rw["RoleId"] == 1) ? 'disabled' : '';
-                            ?>
-                            <option value="<?php echo $rw["RoleId"]; ?>" <?php if(isset($editemp["RoleId"]) && $editemp["RoleId"]==$rw["RoleId"]){ echo "Selected"; } echo $disabled; ?>>
-                                <?php echo $rw["Name"]; ?>
-                            </option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
-            <?php } ?>
-            
-            <div class="clearfix"> </div>
-            </div>
-
-            <div class="vali-form-group">
-            <div class="col-md-3 control-label">
+            <div class="col-md-6 control-label">
               <label class="control-label">Designation*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -325,7 +177,7 @@
               </div>
             </div>
 
-            <div class="col-md-3 control-label">
+            <div class="col-md-6 control-label">
               <label class="control-label">Academic Rank*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -334,32 +186,125 @@
               <input type="text" name="academicrank" title="Academic Rank" value="<?php echo(isset($editemp["AcademicRank"]))?$editemp["AcademicRank"]:""; ?>" class="form-control" placeholder="Academic Rank" required="">
               </div>
             </div>
+            
+            </div>
+            <div class="clearfix"> </div>
 
-            <div class="col-md-3 control-label">
-              <label class="control-label">Username*</label>
-              <div class="input-group">             
-                  <span class="input-group-addon">
-              <i class="fa fa-user" aria-hidden="true"></i>
-              </span>
-              <input type="text" name="email" title="Email" value="<?php echo(isset($editemp["Email"]))?$editemp["Email"]:""; ?>" class="form-control" placeholder="Email Address" required="">
+            <div class="col-md-12 control-label">
+              <label class="control-label">Permanent Address*</label>
+              <div class="input-group">   
+              <span class="input-group-addon">
+              <i class="fa fa-pencil " aria-hidden="true"></i>
+              </span>          
+              <input type="text" name="address1" title="Address 1" value="<?php echo(isset($editemp["Address1"]))?$editemp["Address1"]:""; ?>" class="form-control" placeholder="Address Line 1" required="">
               </div>
             </div>
-            
-            <div class="col-md-3 control-label">
-              <label class="control-label">Password*</label>
+            <div class="clearfix"> </div>
+
+            <div class="col-md-12 control-label">
+              <label class="control-label">Present Address*</label>
+              <div class="input-group">
+              <span class="input-group-addon">
+              <i class="fa fa-pencil " aria-hidden="true"></i>
+              </span>
+                          
+              <input type="text" name="address2" title="Address 2" value="<?php echo(isset($editemp["Address2"]))?$editemp["Address2"]:""; ?>" class="form-control" placeholder="Address Line 2" required>
+              </div>
+            </div>
+
+            <div class="vali-form-group">
+
+            <div class="col-md-4 control-label">
+              <label class="control-label">Join Date*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
+              <i class="fa fa-calendar" aria-hidden="true"></i>
               </span>
-              <input type="password" id="Psw" title="Password" value="<?php echo(isset($editemp["Password"]))?$editemp["Password"]:""; ?>" name="password" placeholder="Password " class="form-control" required="">
-              <span class="input-group-addon">
-              <a><i class='fa fa-eye' aria-hidden='false' onclick="passwordeyes()"></i></a>
-              </span>
-              </div>              
+              <input type="text" id="JoinDate" title="Join Date" name="joindate" placeholder="Join Date" value="<?php echo(isset($editemp["JoinDate"]))?$editemp["JoinDate"]:""; ?>" class="form-control" required="" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')">
+              </div>
             </div>
-          
+
+            <div class="col-md-4 control-label">
+              <label class="control-label">Leave Date</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              </span>
+              <input type="text" id="LeaveDate" title="Leave Date" name="leavedate" placeholder="Leave Date" value="<?php echo(isset($editemp["LeaveDate"]))?$editemp["LeaveDate"]:""; ?>" class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')">
+              </div>
+            </div>
+
+            <div class="col-md-4 control-label">
+              <label class="control-label">Status</label>
+              <div class="input-group">             
+                <span class="input-group-addon">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                </span>
+                <select name="status" title="Status" required="" style="text-transform: capitalize;">
+                  <option value="">-- Select Status --</option>
+                  <?php while($rw = mysqli_fetch_assoc($statusn)){ ?> 
+                    <option value="<?php echo $rw["StatusId"]; ?>" <?php if(isset($editemp["StatusId"]) && $editemp["StatusId"]==$rw["StatusId"]){ echo "Selected"; }?>> <?php echo $rw["Name"]; ?> </option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+
               <div class="clearfix"> </div>
+            </div>
+            
+            <div class="vali-form-group">  
+
+              <?php
+              if (!isset($editemp["RoleId"]) || $editemp["RoleId"] != 1) {
+              ?>
+                  <div class="col-md-4 control-label">
+                      <label class="control-label">Role*</label>
+                      <div class="input-group">             
+                          <span class="input-group-addon">
+                              <i class="fa fa-user" aria-hidden="true"></i>
+                          </span>
+                          <select name="role" required="" title="Role" style="text-transform: capitalize;"  >
+                              <option value="">-- Select Role --</option>
+                              <?php
+                              while($rw = mysqli_fetch_assoc($rolen)){
+                                  $disabled = ($rw["RoleId"] == 1) ? 'disabled' : '';
+                              ?>
+                              <option value="<?php echo $rw["RoleId"]; ?>" <?php if(isset($editemp["RoleId"]) && $editemp["RoleId"]==$rw["RoleId"]){ echo "Selected"; } echo $disabled; ?>>
+                                  <?php echo $rw["Name"]; ?>
+                              </option>
+                              <?php } ?>
+                          </select>
+                      </div>
+                  </div>
+              <?php } ?>
+
+              <div class="col-md-4 control-label">
+                  <label class="control-label">Username*</label>
+                  <div class="input-group">             
+                      <span class="input-group-addon">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  </span>
+                  <input type="text" name="email" title="Email" value="<?php echo(isset($editemp["Email"]))?$editemp["Email"]:""; ?>" class="form-control" placeholder="Email Address" required="">
+                  </div>
+              </div>
+
+              <div class="col-md-4 control-label">
+                  <label class="control-label">Password*</label>
+                  <div class="input-group">             
+                      <span class="input-group-addon">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                  </span>
+                  <input type="password" id="Psw" title="Password" value="<?php echo(isset($editemp["Password"]))?$editemp["Password"]:""; ?>" name="password" placeholder="Password " class="form-control" required="">
+                  <span class="input-group-addon">
+                  <a><i class='fa fa-eye' aria-hidden='false' onclick="passwordeyes()"></i></a>
+                  </span>
+                  </div>              
+              </div>
+              
+              <div class="clearfix"> </div>
+              
           </div>
+
             <div class="col-md-12 form-group">
               <button type="submit" name="submit" class="btn btn-primary">Submit</button>
               <button type="reset" class="btn btn-default">Reset</button>

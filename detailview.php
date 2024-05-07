@@ -9,7 +9,6 @@
 	$maritaln ="";
 	$cityn ="";
 	$staten ="";
-	$countryn ="";
 	$positionn = "";
 	$rolen ="";
 	if(isset($_GET['employeeid']))
@@ -27,18 +26,6 @@
 		$mid = mysqli_query($db,"select * from maritalstatus where MaritalId='$maritalid'");
 		$maritaln = mysqli_fetch_assoc($mid);
 
-		$cityid = $row['CityId'];
-		$cid = mysqli_query($db,"select * from city where CityId='$cityid'");
-		$cityn = mysqli_fetch_assoc($cid);
-
-		$stateid = $cityn['StateId'];
-		$sid = mysqli_query($db,"select * from state where StateId='$stateid'");
-		$staten = mysqli_fetch_assoc($sid);
-
-		$countryid = $staten['CountryId'];
-		$couid = mysqli_query($db,"select * from country where CountryId='$countryid'");
-		$countryn = mysqli_fetch_assoc($couid);
-
 		$positionid = $row['PositionId'];
 		$pid = mysqli_query($db,"select * from position where PositionId='$positionid'");
 		$positionn = mysqli_fetch_assoc($pid);
@@ -50,10 +37,6 @@
 	if(isset($_POST['edit'])) {
 		$employeeid = $_POST['employeeid'];
 		echo "<script>window.location='employeeadd.php?empid=$employeeid';</script>";
-	}
-	else if(isset($_POST['delete'])) {
-		$employeeid = $_POST['employeeid'];
-		echo "<script>window.location='employeeview.php?empid=$employeeid';</script>";
 	}
 	else if(isset($_POST['close'])) {
 		echo "<script>window.location='employeeview.php';</script>";
@@ -97,7 +80,7 @@
 <h2 style="text-transform: capitalize; margin: 0px;">
     <?php
     if ($row) {
-        echo $row['FirstName'] . "&nbsp;" . $row['MiddleName'] . "&nbsp;" . $row['LastName'];
+        echo $row['FirstName'] . "&nbsp;" . $row['MiddleName'] . "&nbsp;" . $row['LastName'] . " -&nbsp;" . $row['AcademicRank'];
     } else {
         echo "Null";
     ?> -&nbsp;&nbsp;<font color="black">
@@ -122,17 +105,12 @@
 				</tbody>
 				<tbody>
 					<tr>
-						<td style="text-align: right;"><b>Address</b> &nbsp;::</td>
-						<td><?php if($row) { echo $row['Address1']; } else{ echo "Null"; }?>,</td>
+						<td style="text-align: right;"><b>Permanent Address</b> &nbsp;::</td>
+						<td><?php if($row) { echo $row['Address1']; } else{ echo "Null"; }?></td>
 					</tr>
 					<tr>
-						<td></td>
-						<td><?php if($row) { echo $row['Address2']; } else{ echo "Null"; }?>,&nbsp;&nbsp;<?php if($row) { echo $row['Address3']; } else{ echo "Null"; }?></td>
-						
-					</tr>
-					<tr>
-						<td></td>
-						<td><?php if($cityn) { echo ucfirst($cityn['Name']); } else{ echo "Null"; }?> ,&nbsp;&nbsp;&nbsp;<?php if($staten) { echo ucfirst($staten['Name']); } else{ echo "Null"; }?> ,&nbsp;&nbsp;&nbsp;<?php if($countryn) { echo ucfirst($countryn['Name']); } else{ echo "Null"; }?></td>
+						<td style="text-align: right;"><b>Present Address</b> &nbsp;::</td>
+						<td><?php if($row) { echo $row['Address1']; } else{ echo "Null"; }?></td>
 					</tr>
 				</tbody>
 			</table>
@@ -212,11 +190,6 @@
 		<div class="col-md-12 form-group">
 			<input type="hidden" name="employeeid" value="<?php echo $empid; ?>">
 			<button type="submit" name="edit" class="btn btn-primary">Edit</button>
-			<?php
-				if ($rolen && $rolen['RoleId'] == 3) {
-					echo '<button type="submit" name="delete" class="btn btn-default">Delete</button>';
-				}
-			?>
 			<button type="submit" name="close" class="btn btn-primary">Close</button>
 		</div>
 	</div>
