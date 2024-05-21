@@ -55,7 +55,7 @@
           }
         ?>
         <div class="vali-form-group">
-          <div class="col-md-4 control-label">
+          <div class="col-md-3 control-label">
               <label class="control-label">Employee ID*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -65,8 +65,17 @@
               </div>
             </div>
             
+            <div class="col-md-3 control-label">
+              <label class="control-label">GSIS NO.*</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+              <i class="fa fa-mobile" aria-hidden="true"></i>
+              </span>
+              <input type="text" name="gsisno" title="GSIS no." value="<?php echo(isset($editemp["GSISNO"]))?$editemp["GSISNO"]:""; ?>" class="form-control" placeholder="GSIS NO." required="">
+              </div>
+            </div>
 
-            <div class="col-md-4 control-label">
+            <div class="col-md-3 control-label">
               <label class="control-label">Profile Image*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -76,7 +85,7 @@
               </div>
             </div>
 
-            <div class="col-md-4 control-label">
+            <div class="col-md-3 control-label">
               <label class="control-label">Gender*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -94,7 +103,7 @@
             <div class="clearfix"> </div>
 
          	<div class="vali-form-group">
-            <div class="col-md-4 control-label">
+            <div class="col-md-3 control-label">
               <label class="control-label">First Name*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -104,7 +113,7 @@
               </div>
             </div>
 
-            <div class="col-md-4 control-label">
+            <div class="col-md-3 control-label">
               <label class="control-label">Middel Name*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -114,7 +123,7 @@
               </div>
             </div>
 
-            <div class="col-md-4 control-label">
+            <div class="col-md-3 control-label">
               <label class="control-label">Last Name*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -123,11 +132,8 @@
               <input type="text" name="lname" title="Last Name" value="<?php echo(isset($editemp["LastName"]))?$editemp["LastName"]:""; ?>" class="form-control" placeholder="Last Name" required="">
               </div>
             </div>
-              <div class="clearfix"> </div>
-            </div>
 
-            <div class="vali-form-group">
-            <div class="col-md-4 control-label">
+            <div class="col-md-3 control-label">
               <label class="control-label">Birth Date*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -137,7 +143,11 @@
               </div>
             </div>
 
-            <div class="col-md-4 control-label">
+          </div>
+
+            <div class="vali-form-group">
+
+            <div class="col-md-3 control-label">
               <label class="control-label">Marital*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -152,7 +162,7 @@
               </div>
             </div>
 
-            <div class="col-md-4 control-label">
+            <div class="col-md-3 control-label">
               <label class="control-label">Mobile Number*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -162,7 +172,7 @@
               </div>
             </div>
 
-            <div class="col-md-6 control-label">
+            <div class="col-md-3 control-label">
               <label class="control-label">Designation*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -177,13 +187,53 @@
               </div>
             </div>
 
-            <div class="col-md-6 control-label">
+            <div class="col-md-3 control-label">
               <label class="control-label">Academic Rank*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
               <i class="fa fa-user" aria-hidden="true"></i>
               </span>
               <input type="text" name="academicrank" title="Academic Rank" value="<?php echo(isset($editemp["AcademicRank"]))?$editemp["AcademicRank"]:""; ?>" class="form-control" placeholder="Academic Rank" required="">
+              </div>
+            </div>
+
+            <div class="col-md-3 control-label">
+              <label class="control-label">High Attainment*</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              </span>
+              <input type="text" name="highattainment" title="High Attainment" value="<?php echo(isset($editemp["HighAttainment"]))?$editemp["HighAttainment"]:""; ?>" class="form-control" placeholder="High Attainment" required="">
+              </div>
+            </div>
+
+            <div class="col-md-3 control-label">
+              <label class="control-label">Department*</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              </span>
+              <input type="text" name="department" title="Department" value="<?php echo(isset($editemp["Department"]))?$editemp["Department"]:""; ?>" class="form-control" placeholder="Department" required="">
+              </div>
+            </div>
+
+            <div class="col-md-3 control-label">
+              <label class="control-label">Join Date*</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              </span>
+              <input type="text" id="JoinDate" title="Join Date" name="joindate" placeholder="Join Date" value="<?php echo(isset($editemp["JoinDate"]))?$editemp["JoinDate"]:""; ?>" class="form-control" required="" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')">
+              </div>
+            </div>
+
+            <div class="col-md-3 control-label">
+              <label class="control-label">Leave Date</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              </span>
+              <input type="text" id="LeaveDate" title="Leave Date" name="leavedate" placeholder="Leave Date" value="<?php echo(isset($editemp["LeaveDate"]))?$editemp["LeaveDate"]:""; ?>" class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')">
               </div>
             </div>
             
@@ -211,48 +261,23 @@
               <input type="text" name="address2" title="Address 2" value="<?php echo(isset($editemp["Address2"]))?$editemp["Address2"]:""; ?>" class="form-control" placeholder="Address Line 2" required>
               </div>
             </div>
-
-            <div class="vali-form-group">
-
-            <div class="col-md-4 control-label">
-              <label class="control-label">Join Date*</label>
-              <div class="input-group">             
-                  <span class="input-group-addon">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              </span>
-              <input type="text" id="JoinDate" title="Join Date" name="joindate" placeholder="Join Date" value="<?php echo(isset($editemp["JoinDate"]))?$editemp["JoinDate"]:""; ?>" class="form-control" required="" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')">
-              </div>
-            </div>
-
-            <div class="col-md-4 control-label">
-              <label class="control-label">Leave Date</label>
-              <div class="input-group">             
-                  <span class="input-group-addon">
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              </span>
-              <input type="text" id="LeaveDate" title="Leave Date" name="leavedate" placeholder="Leave Date" value="<?php echo(isset($editemp["LeaveDate"]))?$editemp["LeaveDate"]:""; ?>" class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')">
-              </div>
-            </div>
-
-            <div class="col-md-4 control-label">
-              <label class="control-label">Status</label>
-              <div class="input-group">             
-                <span class="input-group-addon">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
-                </span>
-                <select name="status" title="Status" required="" style="text-transform: capitalize;">
-                  <option value="">-- Select Status --</option>
-                  <?php while($rw = mysqli_fetch_assoc($statusn)){ ?> 
-                    <option value="<?php echo $rw["StatusId"]; ?>" <?php if(isset($editemp["StatusId"]) && $editemp["StatusId"]==$rw["StatusId"]){ echo "Selected"; }?>> <?php echo $rw["Name"]; ?> </option>
-                  <?php } ?>
-                </select>
-              </div>
-            </div>
-
-              <div class="clearfix"> </div>
-            </div>
             
             <div class="vali-form-group">  
+
+              <div class="col-md-4 control-label">
+                <label class="control-label">Status</label>
+                <div class="input-group">             
+                  <span class="input-group-addon">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  </span>
+                  <select name="status" title="Status" required="" style="text-transform: capitalize;">
+                    <option value="">-- Select Status --</option>
+                    <?php while($rw = mysqli_fetch_assoc($statusn)){ ?> 
+                      <option value="<?php echo $rw["StatusId"]; ?>" <?php if(isset($editemp["StatusId"]) && $editemp["StatusId"]==$rw["StatusId"]){ echo "Selected"; }?>> <?php echo $rw["Name"]; ?> </option>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
 
               <?php
               if (!isset($editemp["RoleId"]) || $editemp["RoleId"] != 1) {

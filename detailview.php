@@ -108,21 +108,23 @@
 						<td style="text-align: right;"><b>Permanent Address</b> &nbsp;::</td>
 						<td><?php if($row) { echo $row['Address1']; } else{ echo "Null"; }?></td>
 					</tr>
+				</tbody>
+				<tbody>
 					<tr>
 						<td style="text-align: right;"><b>Present Address</b> &nbsp;::</td>
 						<td><?php if($row) { echo $row['Address1']; } else{ echo "Null"; }?></td>
 					</tr>
 				</tbody>
-			</table>
-		</div>
-		<div class="col-md-4">
-			<table>
 				<tbody>
 					<tr>
 						<td style="text-align: right;"><b>Gender</b> ::</td>
 						<td><?php if($gendern) { echo ucfirst($gendern['Name']); } else{ echo "Null"; }?></td>
 					</tr>
 				</tbody>
+			</table>
+		</div>
+		<div class="col-md-4">
+			<table>
 				<tbody>
 					<tr>
 						<td style="text-align: right;"><b>Marital</b> ::</td>
@@ -147,17 +149,17 @@
 						<td><?php if($row) { echo $row['Mobile']; } else{ echo "Null"; }?></td>
 					</tr>
 				</tbody>
-			</table>
-		</div>
-		
-		<div class="col-md-3">
-			<table>
 				<tbody>
 					<tr>
 						<td style="text-align: right;"><b>Role</b> ::</td>
 						<td><?php if($rolen) { echo ucfirst($rolen['Name']); } else{ echo "Null"; }?></td>
 					</tr>
 				</tbody>
+			</table>
+		</div>
+		
+		<div class="col-md-3">
+			<table>
 				<tbody>
 					<tr>
 						<td style="text-align: right;"><b>Designation</b> ::</td>
@@ -166,8 +168,14 @@
 				</tbody>
 				<tbody>
 					<tr>
-						<td style="text-align: right;"><b>Academic Rank</b> ::</td>
-						<td><?php if($row) { echo $row['AcademicRank']; } else{ echo "Null"; }?></td>
+						<td style="text-align: right;"><b>Highest Attainment</b> ::</td>
+						<td><?php if($row) { echo $row['HighAttainment']; } else{ echo "Null"; }?></td>
+					</tr>
+				</tbody>
+				<tbody>
+					<tr>
+						<td style="text-align: right;"><b>Department</b> ::</td>
+						<td><?php if($row) { echo $row['Department']; } else{ echo "Null"; }?></td>
 					</tr>
 				</tbody>
 				<tbody>

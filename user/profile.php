@@ -16,18 +16,6 @@
 	$positionid = $_SESSION['User']['PositionId'];
 	$pid = mysqli_query($db,"select * from position where PositionId='$positionid'");
 	$positionn = mysqli_fetch_assoc($pid);
-
-	$cityid = $_SESSION['User']['CityId'];
-	$cid = mysqli_query($db,"select * from city where CityId='$cityid'");
-	$cityn = mysqli_fetch_assoc($cid);
-
-	$stateid = $cityn['StateId'];
-	$sid = mysqli_query($db,"select * from state where StateId='$stateid'");
-	$staten = mysqli_fetch_assoc($sid);
-
-	$countryid = $staten['CountryId'];
-	$couid = mysqli_query($db,"select * from country where CountryId='$countryid'");
-	$countryn = mysqli_fetch_assoc($couid);
 ?>
                	<div class="s-12 l-10">
                	<h1>Profile</h1><hr>
@@ -47,6 +35,9 @@
                  			<tr>
                  				<td align="center"><b>Employee ID :</b> <?php echo(isset($_SESSION['User']['EmployeeId']))?$_SESSION['User']['EmployeeId']:"Null";?></td>
                  			</tr>
+							<tr>
+								<td align="center"><b>GSIS NO. :</b> <?php echo(isset($_SESSION['User']['GSISNO']))?$_SESSION['User']['GSISNO']:"Null";?></td>
+							</tr>
                  		</tbody>
                  	</table>
                	</div>
@@ -71,16 +62,12 @@
                  			</tr>
                  			
                  			<tr>
-                 				<td style="text-align: right;"><b>Address :</b></td>
-                 				<td ><?php echo(isset($_SESSION['User']['Address1']))?$_SESSION['User']['Address1']:"Null";?> ,</td>
+                 				<td style="text-align: right;"><b>Permanent Address :</b></td>
+                 				<td ><?php echo(isset($_SESSION['User']['Address1']))?$_SESSION['User']['Address1']:"Null";?></td>
                  			</tr>
                  			<tr>
-                 				<td></td>
-                 				<td ><?php echo(isset($_SESSION['User']['Address2']))?$_SESSION['User']['Address2']:"Null";?> , <?php echo(isset($_SESSION['User']['Address3']))?$_SESSION['User']['Address3']:"Null";?> , </td>
-                 			</tr>
-                 			<tr>
-                 				<td></td>
-                 				<td ><?php echo(isset($cityn['Name']))?ucfirst($cityn['Name']):"Null";?>, <?php echo(isset($staten['Name']))?ucfirst($staten['Name']):"Null";?>, <?php echo(isset($countryn['Name']))?ucfirst($countryn['Name']):"Null";?></td>
+                 				<td style="text-align: right;"><b>Present Address :</b></td>
+                 				<td ><?php echo(isset($_SESSION['User']['Address2']))?$_SESSION['User']['Address2']:"Null";?></td>
                  			</tr>
                  		</tbody>
                  	</table>
@@ -104,6 +91,10 @@
                  				<td style="text-align: right;"><b>Role :</b></td>
                  				<td><?php echo(isset($_SESSION['role']['Name']))?ucfirst($_SESSION['role']['Name']):"Null";?></td>
                  			</tr>
+							<tr>
+								<td style="text-align: right;"><b>Highest Attainment :</td>
+								<td><?php echo(isset($_SESSION['User']['HighAttainment']))?$_SESSION['User']['HighAttainment']:"Null";?></td>
+							</tr>
                  			<tr>
                  				<td style="text-align: right;"><b>Position :</b></td>
                  				<td><?php echo(isset($positionn['Name']))?ucfirst($positionn['Name']):"Null";?></td>

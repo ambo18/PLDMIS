@@ -154,7 +154,8 @@ nav{
                            <a title="Faculty-Development">Faculty & Staff Development</a>
                            <ul>
                               <li><a href="training.php">Training/ Seminar</a></li>
-                              <li><a href="master_doctoral.php">Doctoral/ Masteral</a></li>                                                          
+                              <li><a href="master_doctoral.php">Doctoral/ Masteral</a></li>
+                              <li><a href="training_need.php">Training Need</a></li>                                                          
                            </ul>
                         </li>
                         <li><a href="changepassword.php" title="Setting">Setting</a></li>
