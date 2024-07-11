@@ -54,26 +54,7 @@
             echo '<h4 style="color: #008000;">'.$id.'</h4>'; 
           }
         ?>
-        <div class="vali-form-group">
-          <div class="col-md-3 control-label">
-              <label class="control-label">Employee ID*</label>
-              <div class="input-group">             
-                  <span class="input-group-addon">
-              <i class="fa fa-user" aria-hidden="true"></i>
-              </span>
-              <input type="text" name="empid" title="Employee ID" value="<?php echo(isset($editemp["EmployeeId"]))?$editemp["EmployeeId"]:""; ?>" class="form-control" placeholder="Employee ID" required="">
-              </div>
-            </div>
-            
-            <div class="col-md-3 control-label">
-              <label class="control-label">GSIS NO.*</label>
-              <div class="input-group">             
-                  <span class="input-group-addon">
-              <i class="fa fa-mobile" aria-hidden="true"></i>
-              </span>
-              <input type="text" name="gsisno" title="GSIS no." value="<?php echo(isset($editemp["GSISNO"]))?$editemp["GSISNO"]:""; ?>" class="form-control" placeholder="GSIS NO." required="">
-              </div>
-            </div>
+          <div class="vali-form-group">
 
             <div class="col-md-3 control-label">
               <label class="control-label">Profile Image*</label>
@@ -86,24 +67,6 @@
             </div>
 
             <div class="col-md-3 control-label">
-              <label class="control-label">Gender*</label>
-              <div class="input-group">             
-                  <span class="input-group-addon">
-              <i class="fa fa-male" aria-hidden="true"></i>
-              </span>
-              <select name="gender" title="Gender" required="" style="padding: 5px 5px; text-transform: capitalize;"">
-                <option value="">-- Select Gender --</option>
-                <?php while($rw = mysqli_fetch_assoc($gendern)){ ?> 
-                <option value="<?php echo $rw["GenderId"]; ?>" <?php if(isset($editemp["Gender"]) && $editemp["Gender"]==$rw["GenderId"]){ echo "Selected"; }?>> <?php echo $rw["Name"]; ?> </option>
-                <?php } ?>
-              </select>
-              </div>
-            </div>
-            </div>
-            <div class="clearfix"> </div>
-
-         	<div class="vali-form-group">
-            <div class="col-md-3 control-label">
               <label class="control-label">First Name*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -114,7 +77,7 @@
             </div>
 
             <div class="col-md-3 control-label">
-              <label class="control-label">Middel Name*</label>
+              <label class="control-label">Middle Name*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
               <i class="fa fa-user" aria-hidden="true"></i>
@@ -133,8 +96,12 @@
               </div>
             </div>
 
+          </div>
+
+          <div class="vali-form-group">
+
             <div class="col-md-3 control-label">
-              <label class="control-label">Birth Date*</label>
+              <label class="control-label">Date of Birth*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
               <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -142,10 +109,21 @@
               <input type="text" id="Birthdate" title="Birth Date" name="bdate" placeholder="Birth Date" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" value="<?php echo(isset($editemp["Birthdate"]))?$editemp["Birthdate"]:""; ?>"  class="form-control" required="">
               </div>
             </div>
-
-          </div>
-
-            <div class="vali-form-group">
+            
+            <div class="col-md-3 control-label">
+              <label class="control-label">Gender*</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+                <i class="fa fa-male" aria-hidden="true"></i>
+                </span>
+                <select name="gender" title="Gender" required="" style="padding: 5px 5px; text-transform: capitalize;"">
+                  <option value="">-- Select Gender --</option>
+                  <?php while($rw = mysqli_fetch_assoc($gendern)){ ?> 
+                  <option value="<?php echo $rw["GenderId"]; ?>" <?php if(isset($editemp["Gender"]) && $editemp["Gender"]==$rw["GenderId"]){ echo "Selected"; }?>> <?php echo $rw["Name"]; ?> </option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
 
             <div class="col-md-3 control-label">
               <label class="control-label">Marital*</label>
@@ -161,6 +139,100 @@
               </select>
               </div>
             </div>
+
+            <div class="col-md-3 control-label">
+              <label class="control-label">Employee ID*</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              </span>
+              <input type="text" name="empid" title="Employee ID" value="<?php echo(isset($editemp["EmployeeId"]))?$editemp["EmployeeId"]:""; ?>" class="form-control" placeholder="Employee ID" required="">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="clearfix"> </div>
+
+          <div class="vali-form-group">
+
+            <div class="col-md-3 control-label">
+              <label class="control-label">GSIS NO.*</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+              <i class="fa fa-mobile" aria-hidden="true"></i>
+              </span>
+              <input type="text" name="gsisno" title="GSIS no." value="<?php echo(isset($editemp["GSISNO"]))?$editemp["GSISNO"]:""; ?>" class="form-control" placeholder="GSIS NO." required="">
+              </div>
+            </div>
+
+            <div class="col-md-3 control-label">
+              <label class="control-label">PAG-IBIG NO.*</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+              <i class="fa fa-mobile" aria-hidden="true"></i>
+              </span>
+              <input type="text" name="pagibigno" title="PAG-IBIG no." value="<?php echo(isset($editemp["PAGIBIGNO"]))?$editemp["PAGIBIGNO"]:""; ?>" class="form-control" placeholder="PAG-IBIG NO." required="">
+              </div>
+            </div>
+
+            <div class="col-md-3 control-label">
+              <label class="control-label">TIN NO.*</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+              <i class="fa fa-mobile" aria-hidden="true"></i>
+              </span>
+              <input type="text" name="tinno" title="TIN no." value="<?php echo(isset($editemp["TINNO"]))?$editemp["TINO"]:""; ?>" class="form-control" placeholder="TIN NO." required="">
+              </div>
+            </div>
+
+            <div class="col-md-3 control-label">
+              <label class="control-label">PHILHEALTH NO.*</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+              <i class="fa fa-mobile" aria-hidden="true"></i>
+              </span>
+              <input type="text" name="philhealthno" title="PHILHEALTH no." value="<?php echo(isset($editemp["PHILHEALTHNO"]))?$editemp["PHILHEALTHNO"]:""; ?>" class="form-control" placeholder="PHILHEALTH NO." required="">
+              </div>
+            </div>
+
+            <div class="col-md-3 control-label">
+              <label class="control-label">SSS NO.*</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+              <i class="fa fa-mobile" aria-hidden="true"></i>
+              </span>
+              <input type="text" name="sssno" title="SSS no." value="<?php echo(isset($editemp["SSSNO"]))?$editemp["SSSNO"]:""; ?>" class="form-control" placeholder="SSS NO." required="">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="clearfix"> </div>
+
+          <div class="col-md-12 control-label">
+              <label class="control-label">Permanent Address*</label>
+              <div class="input-group">   
+              <span class="input-group-addon">
+              <i class="fa fa-pencil " aria-hidden="true"></i>
+              </span>          
+              <input type="text" name="address1" title="Address 1" value="<?php echo(isset($editemp["Address1"]))?$editemp["Address1"]:""; ?>" class="form-control" placeholder="Address Line 1" required="">
+              </div>
+            </div>
+            <div class="clearfix"> </div>
+
+            <div class="col-md-12 control-label">
+              <label class="control-label">Present Address*</label>
+              <div class="input-group">
+              <span class="input-group-addon">
+              <i class="fa fa-pencil " aria-hidden="true"></i>
+              </span>
+                          
+              <input type="text" name="address2" title="Address 2" value="<?php echo(isset($editemp["Address2"]))?$editemp["Address2"]:""; ?>" class="form-control" placeholder="Address Line 2" required>
+              </div>
+            </div>
+
+          <div class="vali-form-group">
 
             <div class="col-md-3 control-label">
               <label class="control-label">Mobile Number*</label>
@@ -198,22 +270,22 @@
             </div>
 
             <div class="col-md-3 control-label">
-              <label class="control-label">High Attainment*</label>
-              <div class="input-group">             
-                  <span class="input-group-addon">
-              <i class="fa fa-user" aria-hidden="true"></i>
-              </span>
-              <input type="text" name="highattainment" title="High Attainment" value="<?php echo(isset($editemp["HighAttainment"]))?$editemp["HighAttainment"]:""; ?>" class="form-control" placeholder="High Attainment" required="">
-              </div>
-            </div>
-
-            <div class="col-md-3 control-label">
               <label class="control-label">Department*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
               <i class="fa fa-users" aria-hidden="true"></i>
               </span>
               <input type="text" name="department" title="Department" value="<?php echo(isset($editemp["Department"]))?$editemp["Department"]:""; ?>" class="form-control" placeholder="Department" required="">
+              </div>
+            </div>
+
+            <div class="col-md-3 control-label">
+              <label class="control-label">High Attainment*</label>
+              <div class="input-group">             
+                  <span class="input-group-addon">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              </span>
+              <input type="text" name="highattainment" title="High Attainment" value="<?php echo(isset($editemp["HighAttainment"]))?$editemp["HighAttainment"]:""; ?>" class="form-control" placeholder="High Attainment" required="">
               </div>
             </div>
 
@@ -239,28 +311,6 @@
             
             </div>
             <div class="clearfix"> </div>
-
-            <div class="col-md-12 control-label">
-              <label class="control-label">Permanent Address*</label>
-              <div class="input-group">   
-              <span class="input-group-addon">
-              <i class="fa fa-pencil " aria-hidden="true"></i>
-              </span>          
-              <input type="text" name="address1" title="Address 1" value="<?php echo(isset($editemp["Address1"]))?$editemp["Address1"]:""; ?>" class="form-control" placeholder="Address Line 1" required="">
-              </div>
-            </div>
-            <div class="clearfix"> </div>
-
-            <div class="col-md-12 control-label">
-              <label class="control-label">Present Address*</label>
-              <div class="input-group">
-              <span class="input-group-addon">
-              <i class="fa fa-pencil " aria-hidden="true"></i>
-              </span>
-                          
-              <input type="text" name="address2" title="Address 2" value="<?php echo(isset($editemp["Address2"]))?$editemp["Address2"]:""; ?>" class="form-control" placeholder="Address Line 2" required>
-              </div>
-            </div>
             
             <div class="vali-form-group">  
 
