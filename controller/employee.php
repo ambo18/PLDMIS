@@ -12,6 +12,10 @@
 		};
 		$empid=$data['empid'];
 		$gsisno=$data['gsisno'];
+		$pagibigno=$data['pagibigno'];
+		$tinno=$data['tinno'];
+		$philhealthno=$data['philhealthno'];
+		$sssno=$data['sssno'];
 		$img=$_FILES['pfimg']['name'];
 		$gender=$data['gender'];
 		$fname=$data['fname'];
@@ -103,7 +107,7 @@
 				{
 					$name = $_POST["imagefilename"];
 				}
-				mysqli_query($db,"insert into employee values(null,'$empid','$gsisno','$fname','$mname','$lname','$bdate','$gender','$address1','$address2','$mnumber','$email','$password','$marital','$highattainment','$position','$academicrank','$roleid','$datetime',null,null,'$joindate','$leavedate',null,null,'$status','$role','$name','$department')");
+				mysqli_query($db,"insert into employee values(null,'$empid','$gsisno','$pagibigno','$tinno','$philhealthno','$sssno','$fname','$mname','$lname','$bdate','$gender','$address1','$address2','$mnumber','$email','$password','$marital','$highattainment','$position','$academicrank','$roleid','$datetime',null,null,'$joindate','$leavedate',null,null,'$status','$role','$name','$department')");
 
 				header("location:../employeeview.php");exit;
 			}
@@ -118,7 +122,7 @@
 				{
 					$name = $_POST["imagefilename"];
 				}
-				mysqli_query($db,"update employee set EmployeeId='$empid',GSISNO='$gsisno',FirstName='$fname',MiddleName='$mname',LastName='$lname',Birthdate='$bdate',Gender='$gender',Address1='$address1',Address2='$address2',Mobile='$mnumber',Email='$email',Password='$password',MaritalStatus='$marital',HighAttainment='$highattainment',PositionId='$position',AcademicRank='$academicrank',ModifiedBy='$roleid',ModifiedDate='$datetime',JoinDate='$joindate',LeaveDate='$leavedate',StatusId='$status',RoleId='$role',ImageName='$name',Department='$department' where EmpId='$editid' ");
+				mysqli_query($db,"update employee set EmployeeId='$empid',GSISNO='$gsisno',PAGIBIGNO='$pagibigno',TINNO='$tinno',PHILHEALTHNO='$philhealthno',SSSNO='$sssno',FirstName='$fname',MiddleName='$mname',LastName='$lname',Birthdate='$bdate',Gender='$gender',Address1='$address1',Address2='$address2',Mobile='$mnumber',Email='$email',Password='$password',MaritalStatus='$marital',HighAttainment='$highattainment',PositionId='$position',AcademicRank='$academicrank',ModifiedBy='$roleid',ModifiedDate='$datetime',JoinDate='$joindate',LeaveDate='$leavedate',StatusId='$status',RoleId='$role',ImageName='$name',Department='$department' where EmpId='$editid' ");
 
 				header("location:../detailview.php?employeeid=$editid");exit;
 			}
