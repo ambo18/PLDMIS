@@ -95,7 +95,7 @@
     </font>
 </h2>
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-4">
 			<table>
 				<tbody>
 					<tr>
@@ -121,6 +121,12 @@
 						<td><?php if($gendern) { echo ucfirst($gendern['Name']); } else{ echo "Null"; }?></td>
 					</tr>
 				</tbody>
+				<tbody>
+					<tr>
+						<td style="text-align: right;"><b>Birth Date</b> ::</td>
+						<td><?php if($row) { echo $row['Birthdate']; } else{ echo "Null"; }?></td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 		<div class="col-md-4">
@@ -129,12 +135,6 @@
 					<tr>
 						<td style="text-align: right;"><b>Marital</b> ::</td>
 						<td><?php if($maritaln) { echo $maritaln['Name']; } else{ echo "Null"; }?></td>
-					</tr>
-				</tbody>
-				<tbody>
-					<tr>
-						<td style="text-align: right;"><b>Birth Date</b> ::</td>
-						<td><?php if($row) { echo $row['Birthdate']; } else{ echo "Null"; }?></td>
 					</tr>
 				</tbody>
 				<tbody>
@@ -151,17 +151,6 @@
 				</tbody>
 				<tbody>
 					<tr>
-						<td style="text-align: right;"><b>Role</b> ::</td>
-						<td><?php if($rolen) { echo ucfirst($rolen['Name']); } else{ echo "Null"; }?></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		
-		<div class="col-md-3">
-			<table>
-				<tbody>
-					<tr>
 						<td style="text-align: right;"><b>Designation</b> ::</td>
 						<td><?php if($positionn) { echo $positionn['Name']; } else{ echo "Null"; }?></td>
 					</tr>
@@ -172,6 +161,17 @@
 						<td><?php if($row) { echo $row['HighAttainment']; } else{ echo "Null"; }?></td>
 					</tr>
 				</tbody>
+				<tbody>
+					<tr>
+						<td style="text-align: right;"><b>Role</b> ::</td>
+						<td><?php if($rolen) { echo ucfirst($rolen['Name']); } else{ echo "Null"; }?></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div class="col-md-4">
+			<table>
 				<tbody>
 					<tr>
 						<td style="text-align: right;"><b>GSIS No.</b> ::</td>
@@ -204,14 +204,8 @@
 				</tbody>
 				<tbody>
 					<tr>
-						<td style="text-align: right;"><b>Join Date</b> ::</td>
+						<td style="text-align: right;"><b>Date of Employment</b> ::</td>
 						<td><?php if($row) { echo $row['JoinDate']; } else{ echo "Null"; }?></td>
-					</tr>
-				</tbody>
-				<tbody>
-					<tr>
-						<td style="text-align: right;"><b>Leave Date</b> ::</td>
-						<td><?php if($row) { echo $row['LeaveDate']; } else{ echo "Null"; }?></td>
 					</tr>
 				</tbody>
 			</table>
