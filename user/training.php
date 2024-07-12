@@ -23,8 +23,9 @@ if(isset($_POST['training']))
     $location = $_POST['location'];
     $sponsor_agency = $_POST['sponsor_agency'];
     $category = $_POST['category'];
-    $date = $_POST['date'];
+    $start_date = $_POST['start_date'];
     $end_date = $_POST['end_date'];
+    $no_of_hours = $_POST['no_of_hours'];
 
     // Handle file upload
     $certificateFileName = $_FILES['certificate']['name'];
@@ -33,8 +34,8 @@ if(isset($_POST['training']))
     move_uploaded_file($certificateTempName, $certificatePath);
 
     mysqli_query($db,"INSERT INTO trainingdetails VALUES (null,'$empid','$trainingtype','$Type_of_seminar_training', 
-    '$calendar_year', '$implementation_year', '$year','$no_development','$years_essu','$performance_rating', 
-    '$currentstatus','$targetstatus','$objectives','$location','$sponsor_agency','$category','$date','$certificateFileName')");
+    '$calendar_year', '$implementation_year', '$year','$no_development','$performance_rating', 
+    '$currentstatus','$targetstatus','$objectives','$location','$sponsor_agency','$category','$start_date','$end_date','$no_of_hours','$certificateFileName')");
     echo "<script>window.location='trainingsview.php';</script>";
 }
 ?>
@@ -75,9 +76,9 @@ if(isset($_POST['training']))
         <input type="file" name="certificate" title="certificate" required="" autocomplete="off">
         <hr>
         <label for="calendar_year">Calendar Year</label>
-        <input type="date" id="calendar_year" name="calendar_year" title="Calendar Year" required="" autocomplete="off">
+        <input type="text" id="calendar_year" name="calendar_year" placeholder="Calendar Year" title="Calendar Year" required="" autocomplete="off">
         <label for="implementation_year">Implementation Year</label>
-        <input type="date" id="implementation_year" name="implementation_year" title="Implementation Year" required="" autocomplete="off">
+        <input type="number" id="implementation_year" name="implementation_year" placeholder="CaleImplementationndar Year" title="Implementation Year" required="" autocomplete="off">
         <label for="year">Year</label>
         <select id="year" name="year" required="">
             <option value="">-- Select Year --</option>
