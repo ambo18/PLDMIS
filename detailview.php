@@ -180,6 +180,12 @@
 				</tbody>
 				<tbody>
 					<tr>
+						<td style="text-align: right;"><b>PAG-IBIG NO.</b> ::</td>
+						<td><?php if($row) { echo $row['PAGIBIGNO']; } else{ echo "Null"; }?></td>
+					</tr>
+				</tbody>
+				<tbody>
+					<tr>
 						<td style="text-align: right;"><b>Department</b> ::</td>
 						<td><?php if($row) { echo $row['Department']; } else{ echo "Null"; }?></td>
 					</tr>
