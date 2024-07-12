@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2024 at 02:22 AM
+-- Generation Time: Jul 12, 2024 at 10:39 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -137,7 +137,14 @@ INSERT INTO `dailyworkload` (`DailyWorkLoadId`, `EmpId`, `LoginDate`, `LogoutDat
 (37, '00001', '2024-02-20 18:27:29', NULL, NULL),
 (38, '240001', '2024-02-20 18:33:53', '2024-02-20 19:11:20', 37),
 (39, '240001', '2024-02-21 06:45:40', NULL, NULL),
-(40, '6231415', '2024-02-21 06:50:20', NULL, NULL);
+(40, '6231415', '2024-02-21 06:50:20', NULL, NULL),
+(41, '6231415', '2024-03-16 13:53:37', '2024-03-16 13:55:37', 28509626),
+(42, '6231415', '2024-03-19 12:20:44', '2024-03-19 12:30:31', 28513861),
+(43, '6231415', '2024-04-21 16:15:05', NULL, NULL),
+(44, '6231415', '2024-05-07 13:51:07', NULL, NULL),
+(45, '6231415', '2024-05-08 08:07:22', '2024-05-08 10:53:16', 166),
+(46, '1', '2024-05-21 08:14:21', NULL, NULL),
+(47, '6231415', '2024-07-12 11:03:27', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -148,8 +155,16 @@ INSERT INTO `dailyworkload` (`DailyWorkLoadId`, `EmpId`, `LoginDate`, `LogoutDat
 CREATE TABLE `degreedetails` (
   `Detail_Id` int(11) NOT NULL,
   `EmpId` int(20) DEFAULT NULL,
+  `CalendarYear` varchar(20) DEFAULT NULL,
+  `ImplementationYear` year(4) DEFAULT NULL,
+  `Year` varchar(4) DEFAULT NULL,
+  `NoDevelopment` varchar(50) DEFAULT NULL,
+  `YearsInEssu` varchar(4) DEFAULT NULL,
+  `PerformanceRating` text DEFAULT NULL,
   `DegreeType` text DEFAULT NULL,
   `DegreeName` text DEFAULT NULL,
+  `Units` varchar(20) DEFAULT NULL,
+  `Location` varchar(255) DEFAULT NULL,
   `YearCompleted` year(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -157,12 +172,8 @@ CREATE TABLE `degreedetails` (
 -- Dumping data for table `degreedetails`
 --
 
-INSERT INTO `degreedetails` (`Detail_Id`, `EmpId`, `DegreeType`, `DegreeName`, `YearCompleted`) VALUES
-(2, 6231415, 'Masteral', 'Degree Name Testing', '2023'),
-(3, 240001, 'Doctoral', 'Doctoral Degree Tests', '2023'),
-(4, 240001, 'Doctoral', 'Degree Name Tests2 ', '2023'),
-(5, 240001, 'Masteral', 'Masteral1', '2023'),
-(6, 6231415, 'Doctoral', 'Doctoral Tests', '2024');
+INSERT INTO `degreedetails` (`Detail_Id`, `EmpId`, `CalendarYear`, `ImplementationYear`, `Year`, `NoDevelopment`, `YearsInEssu`, `PerformanceRating`, `DegreeType`, `DegreeName`, `Units`, `Location`, `YearCompleted`) VALUES
+(1, 6231415, '2024-2026', '2024', '2', 'Yes', '20', '96%', 'Doctoral', 'Degree name tests ', '6', 'Tacloban, Germany', '2024');
 
 -- --------------------------------------------------------
 
@@ -173,6 +184,11 @@ INSERT INTO `degreedetails` (`Detail_Id`, `EmpId`, `DegreeType`, `DegreeName`, `
 CREATE TABLE `employee` (
   `EmpId` bigint(20) NOT NULL,
   `EmployeeId` varchar(11) NOT NULL,
+  `GSISNO` varchar(50) DEFAULT NULL,
+  `PAGIBIGNO` varchar(20) DEFAULT NULL,
+  `TINNO` varchar(20) DEFAULT NULL,
+  `PHILHEALTHNO` varchar(20) DEFAULT NULL,
+  `SSSNO` varchar(20) DEFAULT NULL,
   `FirstName` varchar(200) NOT NULL,
   `MiddleName` varchar(200) NOT NULL,
   `LastName` varchar(200) NOT NULL,
@@ -180,13 +196,11 @@ CREATE TABLE `employee` (
   `Gender` int(10) NOT NULL,
   `Address1` varchar(500) NOT NULL,
   `Address2` varchar(500) NOT NULL,
-  `Address3` varchar(500) NOT NULL,
-  `CityId` int(11) NOT NULL,
   `Mobile` decimal(10,0) NOT NULL,
   `Email` varchar(200) NOT NULL,
   `Password` varchar(25) NOT NULL,
-  `AadharNumber` varchar(25) NOT NULL,
   `MaritalStatus` int(11) NOT NULL,
+  `HighAttainment` varchar(100) DEFAULT NULL,
   `PositionId` int(11) NOT NULL,
   `AcademicRank` varchar(50) DEFAULT NULL,
   `CreatedBy` bigint(20) NOT NULL,
@@ -200,17 +214,19 @@ CREATE TABLE `employee` (
   `StatusId` int(11) NOT NULL,
   `RoleId` int(11) NOT NULL,
   `ImageName` varchar(1000) DEFAULT NULL,
-  `MacAddress` varchar(25) NOT NULL
+  `Department` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`EmpId`, `EmployeeId`, `FirstName`, `MiddleName`, `LastName`, `Birthdate`, `Gender`, `Address1`, `Address2`, `Address3`, `CityId`, `Mobile`, `Email`, `Password`, `AadharNumber`, `MaritalStatus`, `PositionId`, `AcademicRank`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`, `JoinDate`, `LeaveDate`, `LastLogin`, `LastLogout`, `StatusId`, `RoleId`, `ImageName`, `MacAddress`) VALUES
-(1, '1', 'ADmin', 'ADmin', 'Admin', '1994-10-09', 1, 'address1', 'address2', 'address3', 1, 9999999999, 'admin', 'admin', '', 2, 1, NULL, 1, '2017-01-01 00:00:00', 1, '2023-12-05 02:11:32', '2023-11-24', '0000-00-00', '2024-02-21 06:51:30', '2017-02-09 15:12:09', 1, 1, '140323303827user.png', ''),
-(2, '6231415', 'Krizzle', 'P', 'Picasso', '2023-10-01', 1, 'Caridad, Salcedo, Eastern Samar', 'Naparaan Salcedo Eastern Samar- ESSU', '', 1, 912345678, 'krizzle', 'krizzle', '', 2, 2, 'Teacher I', 1, '2022-10-10 08:01:43', 1, '2024-02-02 10:39:19', '2022-10-10', '2024-11-02', '2024-02-21 06:50:20', '2024-02-20 19:25:18', 1, 3, '146570290338female-avatar.png', ''),
-(30, '240001', 'Hershey', 'R', 'Alburo', '1987-02-01', 2, 'Brgy.01 Mercedes Eastern Samar', 'Brgy. Naparaan Salcedo Eastern Samar', '', 2, 9971478896, 'hershey', 'hershey', '', 1, 2, 'Teacher 1', 3, '2024-02-20 06:26:22', 3, '2024-02-20 06:31:52', '2019-02-01', '0000-00-00', '2024-02-21 06:45:40', '2024-02-20 19:11:20', 1, 3, '282895290338female-avatar.png', '');
+INSERT INTO `employee` (`EmpId`, `EmployeeId`, `GSISNO`, `PAGIBIGNO`, `TINNO`, `PHILHEALTHNO`, `SSSNO`, `FirstName`, `MiddleName`, `LastName`, `Birthdate`, `Gender`, `Address1`, `Address2`, `Mobile`, `Email`, `Password`, `MaritalStatus`, `HighAttainment`, `PositionId`, `AcademicRank`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`, `JoinDate`, `LeaveDate`, `LastLogin`, `LastLogout`, `StatusId`, `RoleId`, `ImageName`, `Department`) VALUES
+(1, '1', '56789', NULL, NULL, NULL, NULL, 'ADmin', 'ADmin', 'Admin', '1994-10-09', 1, 'address1', 'address2', 9999999999, 'admin', 'admin', 2, 'None', 1, 'None', 1, '2017-01-01 00:00:00', 1, '2024-05-08 02:58:09', '2023-11-24', '0000-00-00', '2024-07-12 13:16:28', '2017-02-09 15:12:09', 1, 1, '326125shoe11.jpg', 'CANS'),
+(2, '6231415', '6231415555', '12223311', '000001', '000002', '000003', 'Krizzle', 'P', 'Picasso', '2023-12-01', 1, 'Caridad, Salcedo, Eastern Samar', 'Naparaan Salcedo Eastern Samar- ESSU', 912345678, 'krizzle', 'krizzle', 2, 'Masteral', 2, 'Teacher I', 1, '2022-10-10 08:01:43', 1, '2024-07-12 10:53:31', '2022-10-10', '2024-11-02', '2024-07-12 13:19:59', '2024-05-08 10:53:16', 1, 3, '146570290338female-avatar.png', 'CANS'),
+(30, '240001', NULL, NULL, NULL, NULL, NULL, 'Hershey', 'R', 'Alburo', '1987-02-01', 2, 'Brgy.01 Mercedes Eastern Samar', 'Brgy. Naparaan Salcedo Eastern Samar', 9971478896, 'hershey', 'hershey', 1, NULL, 2, 'Teacher 1', 3, '2024-02-20 06:26:22', 3, '2024-02-20 06:31:52', '2019-02-01', '0000-00-00', '2024-02-21 06:45:40', '2024-02-20 19:11:20', 1, 3, '282895290338female-avatar.png', NULL),
+(31, '122334', NULL, NULL, NULL, NULL, NULL, 'R-jhel', 'Basijan', 'Tandugon', '2001-10-18', 1, 'Brgy.Seguinon Salcedo Eastern Samar', 'None', 9971478896, 'rjhel', 'rjhel', 2, NULL, 4, 'Teacher I', 1, '2024-05-07 03:11:07', 3, '2024-05-07 03:44:07', '2024-06-06', '2024-08-07', NULL, NULL, 1, 3, '176036wallpaper.png', 'CCS'),
+(32, '9999999', '989898989', NULL, NULL, NULL, NULL, 'Jhonmark', 'Cabatingan', 'Abletes', '2000-05-01', 1, 'Brgy.Seguinon Salcedo Eastern Samar', 'None', 964365738, 'tests', 'tests', 1, 'Masteral', 6, 'Teacher Ill', 1, '2024-05-08 02:24:43', 1, '2024-05-08 02:32:48', '2024-05-01', '0000-00-00', NULL, NULL, 1, 3, '33107jhonmark.jpg', 'COED');
 
 -- --------------------------------------------------------
 
@@ -471,10 +487,20 @@ CREATE TABLE `trainingdetails` (
   `EmpId` int(20) DEFAULT NULL,
   `TrainingType` text DEFAULT NULL,
   `Type_of_seminar_training` varchar(50) DEFAULT NULL,
+  `CalendarYear` varchar(20) DEFAULT NULL,
+  `ImplementationYear` year(4) DEFAULT NULL,
+  `Year` varchar(10) DEFAULT NULL,
+  `NoDevelopment` text DEFAULT NULL,
+  `PerformanceRating` text DEFAULT NULL,
   `CurrentStatus` varchar(100) DEFAULT NULL,
   `TargetStatus` varchar(100) DEFAULT NULL,
   `Objectives` text DEFAULT NULL,
+  `Location` text DEFAULT NULL,
+  `SponsorAgency` text DEFAULT NULL,
+  `Category` text DEFAULT NULL,
   `date` date DEFAULT NULL,
+  `EndDate` date DEFAULT NULL,
+  `NoOfHours` varchar(10) DEFAULT NULL,
   `certificate` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -482,11 +508,31 @@ CREATE TABLE `trainingdetails` (
 -- Dumping data for table `trainingdetails`
 --
 
-INSERT INTO `trainingdetails` (`Detail_Id`, `EmpId`, `TrainingType`, `Type_of_seminar_training`, `CurrentStatus`, `TargetStatus`, `Objectives`, `date`, `certificate`) VALUES
-(35, 1, 'wwqewe', 'Technical', 'wds', 'efdfdf', NULL, '2024-02-10', 'rjhel.jpg'),
-(40, 6231415, 'Seminar Testing', 'Managerial', 'Status 1', 'Status 2', NULL, '2024-02-10', 'shoe11.jpg'),
-(41, 6231415, 'Training Testing', 'Foundational', 'Current Status Testing', 'Target Status Testing', 'Objectives Testing', '2024-02-19', '290338female-avatar.png'),
-(42, 240001, 'Testing Training', 'Foundational', 'Current Testing', 'Target Testing', 'Objectives Testing', '2024-02-19', 'bg.jpg');
+INSERT INTO `trainingdetails` (`Detail_Id`, `EmpId`, `TrainingType`, `Type_of_seminar_training`, `CalendarYear`, `ImplementationYear`, `Year`, `NoDevelopment`, `PerformanceRating`, `CurrentStatus`, `TargetStatus`, `Objectives`, `Location`, `SponsorAgency`, `Category`, `date`, `EndDate`, `NoOfHours`, `certificate`) VALUES
+(1, 6231415, 'Training tests 1', 'Technical', '2024-2026', '2024', '1', 'Yes', '89%', 'Current Status Testing 1', 'Target Staus Testing 1', 'Objectives Testing', 'Tacloban', 'CHED', 'Regional', '2024-03-18', NULL, NULL, 'wallpaper.png'),
+(2, 6231415, 'Seminar Title 1', 'Foundational', '2023-2030', '2024', '2', 'Yes', '93&', 'Current Status 2', 'Target Status 2', 'Objectives Testing 2', 'Tacloban City', 'CHED', 'National', '2024-07-12', '2024-07-19', '3', 'Screenshot (2).png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `training_need`
+--
+
+CREATE TABLE `training_need` (
+  `Detail_Id` int(11) NOT NULL,
+  `EmpId` int(20) DEFAULT NULL,
+  `TrainingType` text DEFAULT NULL,
+  `Type_of_seminar_training` varchar(50) DEFAULT NULL,
+  `Semester` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `training_need`
+--
+
+INSERT INTO `training_need` (`Detail_Id`, `EmpId`, `TrainingType`, `Type_of_seminar_training`, `Semester`) VALUES
+(1, 6231415, 'Training Need Test', 'Technical', NULL),
+(4, 6231415, 'Training Needed 2', 'Foundational', '2');
 
 -- --------------------------------------------------------
 
@@ -677,6 +723,12 @@ ALTER TABLE `trainingdetails`
   ADD PRIMARY KEY (`Detail_Id`);
 
 --
+-- Indexes for table `training_need`
+--
+ALTER TABLE `training_need`
+  ADD PRIMARY KEY (`Detail_Id`);
+
+--
 -- Indexes for table `type_of_leave`
 --
 ALTER TABLE `type_of_leave`
@@ -714,19 +766,19 @@ ALTER TABLE `country`
 -- AUTO_INCREMENT for table `dailyworkload`
 --
 ALTER TABLE `dailyworkload`
-  MODIFY `DailyWorkLoadId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `DailyWorkLoadId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `degreedetails`
 --
 ALTER TABLE `degreedetails`
-  MODIFY `Detail_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Detail_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `EmpId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `EmpId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `gender`
@@ -792,7 +844,13 @@ ALTER TABLE `state`
 -- AUTO_INCREMENT for table `trainingdetails`
 --
 ALTER TABLE `trainingdetails`
-  MODIFY `Detail_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `Detail_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `training_need`
+--
+ALTER TABLE `training_need`
+  MODIFY `Detail_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `type_of_leave`
