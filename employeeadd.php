@@ -182,7 +182,7 @@
                   <span class="input-group-addon">
               <i class="fa fa-mobile" aria-hidden="true"></i>
               </span>
-              <input type="text" name="tinno" title="TIN no." value="<?php echo(isset($editemp["TINNO"]))?$editemp["TINO"]:""; ?>" class="form-control" placeholder="TIN NO." required="">
+              <input type="text" name="tinno" title="TIN no." value="<?php echo(isset($editemp["TINNO"]))?$editemp["TINNO"]:""; ?>" class="form-control" placeholder="TIN NO." required="">
               </div>
             </div>
 
