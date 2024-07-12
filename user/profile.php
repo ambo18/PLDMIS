@@ -9,6 +9,10 @@
 	$gid = mysqli_query($db,"select * from gender where GenderId='$genderid'");
 	$gendern = mysqli_fetch_assoc($gid);
 
+	$statusid = $_SESSION['User']['StatusId'];
+	$sid = mysqli_query($db,"select * from status where StatusId='$statusid'");
+	$status = mysqli_fetch_assoc($sid);
+
 	$maritalid = $_SESSION['User']['MaritalStatus'];
 	$mid = mysqli_query($db,"select * from maritalstatus where MaritalId='$maritalid'");
 	$maritaln = mysqli_fetch_assoc($mid);
@@ -21,7 +25,7 @@
                	<h1>Profile</h1><hr>
                	<div class="clearfix"></div>
                	</div>
-               	<form action="" method="post">
+               	<form action="" method="post"  style="padding: 10px;">
 
                	<div class="s-12 l-2">
                  	<table>
@@ -41,7 +45,7 @@
                  		</tbody>
                  	</table>
                	</div>
-               	<div class="s-12 l-4" >
+               	<div class="s-12 l-5" >
                  	<table>
                  		<tbody>
                  			<tr>
@@ -80,13 +84,9 @@
                  				<td><?php echo(isset($maritaln['Name']))?ucfirst($maritaln['Name']):"Null";?></td>
                  			</tr>
                  			<tr>
-                 				<td style="text-align: right;"><b>Join Date :</b></td>
+                 				<td style="text-align: right;"><b>Date of Employment :</b></td>
                  				<td><?php echo(isset($_SESSION['User']['JoinDate']))?$_SESSION['User']['JoinDate']:"Null";?></td>
                  			</tr>
-							<tr>
-								<td style="text-align: right;"><b>Leave Date</b> :</td>
-								<td><?php echo(isset($_SESSION['User']['LeaveDate']))?$_SESSION['User']['LeaveDate']:"Null";?></td>
-							</tr>
                  			<tr>
                  				<td style="text-align: right;"><b>Role :</b></td>
                  				<td><?php echo(isset($_SESSION['role']['Name']))?ucfirst($_SESSION['role']['Name']):"Null";?></td>
@@ -102,6 +102,10 @@
                  			<tr>
                  				<td style="text-align: right;"><b>Academic Rank :</b></td>
                  				<td><?php echo(isset($_SESSION['User']['AcademicRank']))?$_SESSION['User']['AcademicRank']:"Null";?></td>
+                 			</tr>
+                 			<tr>
+                 				<td style="text-align: right;"><b>Status :</b></td>
+                 				<td style="color: Red; font-weight: bold;"><?php echo(isset($status['Name']))?ucfirst($status['Name']):"Null";?></td>
                  			</tr>
                  		</tbody>
                  	</table>
