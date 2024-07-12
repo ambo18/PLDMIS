@@ -52,8 +52,10 @@ if(isset($_POST['training']))
                 <option value="<?php echo $row['Type_of_seminar_training']; ?>"><?php echo ucfirst($row['Type_of_seminar_training']);?></option>
             <?php } ?>
         </select>
-        <label for="calendar_year">Date</label>
+        <label for="calendar_year">Start Date</label>
         <input type="date" id="calendar_year" name="calendar_year" title="Date Attended" required="" autocomplete="off">
+        <label for="end_date">End Date</label>
+        <input type="date" id="end_date" name="end_date" title="End Date" required="" autocomplete="off">
         <label for="implementation_year">Implementation Year</label>
         <input type="number" id="implementation_year" name="implementation_year" placeholder="Implementation Year" title="Implementation Year" required="" autocomplete="off">
         <label for="year">Year</label>
