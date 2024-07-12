@@ -58,8 +58,18 @@ if(isset($_POST['training']))
         <input type="date" id="end_date" name="end_date" title="End Date" required="" autocomplete="off">
         <label for="no_of_hours">No. of Hours</label>
         <input type="number" id="no_of_hours" name="no_of_hours" placeholder="No. of Hours" title="No. of Hours" required="" autocomplete="off">
-        <label for="implementation_year">Implementation Year</label>
-        <input type="number" id="implementation_year" name="implementation_year" placeholder="Implementation Year" title="Implementation Year" required="" autocomplete="off">
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" placeholder="Location" title="Location" required="" autocomplete="off">
+        <label for="sponsor_agency">Sponsor Agency</label>
+        <input type="text" id="sponsor_agency" name="sponsor_agency" placeholder="Sponsor Agency" title="Sponsor Agency" required="" autocomplete="off">
+        <label for="category">Category</label>
+        <select id="category" name="category" required="">
+            <option value="">-- Select Category --</option>
+            <option value="National">National</option>
+            <option value="Local">Local</option>
+            <option value="Regional">Regional</option>
+            <option value="International">International</option>
+        </select>
         <label for="year">Year</label>
         <select id="year" name="year" required="">
             <option value="">-- Select Year --</option>
@@ -78,20 +88,6 @@ if(isset($_POST['training']))
         <input type="text" id="targetstatus" name="targetstatus" placeholder="Target Status" title="Target Status" required="" autocomplete="off">
         <label for="objectives">Objectives</label>
         <input type="text" id="objectives" name="objectives" placeholder="Objectives" title="Objectives" required="" autocomplete="off">
-        <label for="location">Location</label>
-        <input type="text" id="location" name="location" placeholder="Location" title="Location" required="" autocomplete="off">
-        <label for="sponsor_agency">Sponsor Agency</label>
-        <input type="text" id="sponsor_agency" name="sponsor_agency" placeholder="Sponsor Agency" title="Sponsor Agency" required="" autocomplete="off">
-        <label for="category">Category</label>
-        <select id="category" name="category" required="">
-            <option value="">-- Select Category --</option>
-            <option value="National">National</option>
-            <option value="Local">Local</option>
-            <option value="Regional">Regional</option>
-            <option value="International">International</option>
-        </select>
-        <label for="date">Date</label>
-        <input type="date" id="date" name="date" class="form-control" required="">
         <label for="certificate">Certificate</label><br>
         <input type="file" name="certificate" title="certificate" required="" autocomplete="off">
         <input type="submit" name="training" title="Save" value="Save">
