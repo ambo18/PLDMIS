@@ -24,6 +24,7 @@ if(isset($_POST['training']))
     $sponsor_agency = $_POST['sponsor_agency'];
     $category = $_POST['category'];
     $date = $_POST['date'];
+    $end_date = $_POST['end_date'];
 
     // Handle file upload
     $certificateFileName = $_FILES['certificate']['name'];
@@ -52,8 +53,8 @@ if(isset($_POST['training']))
                 <option value="<?php echo $row['Type_of_seminar_training']; ?>"><?php echo ucfirst($row['Type_of_seminar_training']);?></option>
             <?php } ?>
         </select>
-        <label for="calendar_year">Start Date</label>
-        <input type="date" id="calendar_year" name="calendar_year" title="Date Attended" required="" autocomplete="off">
+        <label for="start_date">Start Date</label>
+        <input type="date" id="start_date" name="start_date" title="Start Date" required="" autocomplete="off">
         <label for="end_date">End Date</label>
         <input type="date" id="end_date" name="end_date" title="End Date" required="" autocomplete="off">
         <label for="no_of_hours">No. of Hours</label>
@@ -72,6 +73,11 @@ if(isset($_POST['training']))
         </select>
         <label for="certificate">Certificate</label><br>
         <input type="file" name="certificate" title="certificate" required="" autocomplete="off">
+        <hr>
+        <label for="calendar_year">Calendar Year</label>
+        <input type="date" id="calendar_year" name="calendar_year" title="Calendar Year" required="" autocomplete="off">
+        <label for="implementation_year">Implementation Year</label>
+        <input type="date" id="implementation_year" name="implementation_year" title="Implementation Year" required="" autocomplete="off">
         <label for="year">Year</label>
         <select id="year" name="year" required="">
             <option value="">-- Select Year --</option>
@@ -80,8 +86,6 @@ if(isset($_POST['training']))
         </select>
         <label for="no_development">No Development is required/desired</label>
         <input type="text" id="no_development" name="no_development" placeholder="No Development" title="No Development" required="" autocomplete="off">
-        <label for="years_essu">Years in ESSU</label>
-        <input type="number" id="years_essu" name="years_essu" placeholder="Years in ESSU" title="Years in ESSU" required="" autocomplete="off">
         <label for="performance_rating">Performance Rating</label>
         <input type="text" id="performance_rating" name="performance_rating" placeholder="Performance Rating" title="Performance Rating" required="" autocomplete="off">
         <label for="currentstatus">Current Status/Current Competency Level</label>
