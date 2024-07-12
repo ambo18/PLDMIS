@@ -2,7 +2,7 @@
          </div>
       </div>
       <!-- FOOTER -->
-      <footer class="box" style="position: fixed; bottom: 0;">
+      <footer class="box" style="position: fixed; bottom: 0;  padding-top: 1px;">
          <div class="line">
             <div class="s-12 l-12" align="center">
                <p>Learning Development Management Information System &copy; <?= date("Y") ?></p>

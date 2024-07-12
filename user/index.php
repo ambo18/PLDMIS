@@ -118,7 +118,7 @@ if (isset($_GET['msg'])) {
 
 <body>
 
-    <h1 class="text-white">Learning Development Management Information System</h1>
+    <h1 class="text-white">Learning And Development Management Information System</h1>
     <br>
     <br>
     <div class="login-block">
