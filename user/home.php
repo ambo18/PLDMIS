@@ -64,7 +64,7 @@ $doctoral = $doctoral_qry->num_rows;
     <div class="clearfix"></div>
 
     <div class="s-12 l-10" style=" background: #fff;">
-        <h3>Employees Training/Seminar Attended</h3>
+        <h3>Training/Seminar Attended</h3>
         <div>
             <p>Total Technical: <?php echo $technical; ?></p>
             <p>Total Managerial: <?php echo $managerial; ?></p>
@@ -75,7 +75,7 @@ $doctoral = $doctoral_qry->num_rows;
     </div>
 
     <div class="s-12 l-10 right" style="margin-top: 20px; background: #fff;">
-        <h3>Employees Doctoral/Masteral Attended</h3>
+        <h3>Doctoral/Masteral Attended</h3>
         <div>
             <p>Total Masteral: <?php echo $masteral; ?></p>
             <p>Total Doctoral: <?php echo $doctoral; ?></p>
