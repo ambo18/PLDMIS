@@ -70,6 +70,8 @@ if(isset($_POST['training']))
             <option value="Regional">Regional</option>
             <option value="International">International</option>
         </select>
+        <label for="certificate">Certificate</label><br>
+        <input type="file" name="certificate" title="certificate" required="" autocomplete="off">
         <label for="year">Year</label>
         <select id="year" name="year" required="">
             <option value="">-- Select Year --</option>
@@ -88,8 +90,6 @@ if(isset($_POST['training']))
         <input type="text" id="targetstatus" name="targetstatus" placeholder="Target Status" title="Target Status" required="" autocomplete="off">
         <label for="objectives">Objectives</label>
         <input type="text" id="objectives" name="objectives" placeholder="Objectives" title="Objectives" required="" autocomplete="off">
-        <label for="certificate">Certificate</label><br>
-        <input type="file" name="certificate" title="certificate" required="" autocomplete="off">
         <input type="submit" name="training" title="Save" value="Save">
     </form>
 </div>

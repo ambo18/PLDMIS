@@ -59,6 +59,11 @@
             $employeeQuery = mysqli_query($db, "SELECT * FROM employee WHERE EmployeeId = '$empId'");
             $employeeData = mysqli_fetch_assoc($employeeQuery);
 
+            // Calculate years in ESSU
+            $joinDate = new DateTime($employeeData['JoinDate']);
+            $currentDate = new DateTime();
+            $yearsInESSU = $currentDate->diff($joinDate)->y;
+
             // Check if mysqli_query was successful
             $result = mysqli_query($db, "SELECT * FROM trainingdetails WHERE Detail_Id = '$detailId'");
             if ($result) {
@@ -68,9 +73,9 @@
                     echo '<img src="img/essu_logo.png" alt="Essu Logo">';
                     echo "<div class='center'>";
                     echo "<strong>CY {$row['CalendarYear']}</strong>";
-                    echo "<p><strong>Implementation Year: {$row['ImplementationYear']}</strong></p>";
+                    echo "<p><strong>Implementation Year: 2024</strong></p>";
                     echo "<p><strong>Year: </strong> {$row['Year']} &nbsp;&nbsp;&nbsp; <strong>No Development is required /desired: </strong> {$row['NoDevelopment']}</p>";
-                    echo "<p><strong>Name</strong>: {$employeeData['FirstName']} {$employeeData['MiddleName']} {$employeeData['LastName']} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Years in ESSU</strong>: {$row['YearsInEssu']}</p>";
+                    echo "<p><strong>Name</strong>: {$employeeData['FirstName']} {$employeeData['MiddleName']} {$employeeData['LastName']} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Years in ESSU</strong>: $yearsInESSU</p>";
                     echo "<p><strong>Current Position</strong>: {$employeeData['AcademicRank']} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Recent Performance rating</strong>: {$row['PerformanceRating']}</p>";
                     echo "</div>";
                     echo "<table>";
