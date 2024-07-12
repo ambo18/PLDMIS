@@ -166,7 +166,7 @@
               </div>
             </div>
 
-            <div class="col-md-3 control-label">
+            <div class="col-md-2 control-label">
               <label class="control-label">PAG-IBIG NO.*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -176,7 +176,7 @@
               </div>
             </div>
 
-            <div class="col-md-3 control-label">
+            <div class="col-md-2 control-label">
               <label class="control-label">TIN NO.*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -186,7 +186,7 @@
               </div>
             </div>
 
-            <div class="col-md-3 control-label">
+            <div class="col-md-2 control-label">
               <label class="control-label">PHILHEALTH NO.*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
@@ -290,7 +290,7 @@
             </div>
 
             <div class="col-md-3 control-label">
-              <label class="control-label">Join Date*</label>
+              <label class="control-label">Date of Employment*</label>
               <div class="input-group">             
                   <span class="input-group-addon">
               <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -308,13 +308,8 @@
               <input type="text" id="LeaveDate" title="Leave Date" name="leavedate" placeholder="Leave Date" value="<?php echo(isset($editemp["LeaveDate"]))?$editemp["LeaveDate"]:""; ?>" class="form-control" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')">
               </div>
             </div>
-            
-            </div>
-            <div class="clearfix"> </div>
-            
-            <div class="vali-form-group">  
 
-              <div class="col-md-4 control-label">
+            <div class="col-md-3 control-label">
                 <label class="control-label">Status</label>
                 <div class="input-group">             
                   <span class="input-group-addon">
@@ -328,6 +323,11 @@
                   </select>
                 </div>
               </div>
+            
+            </div>
+            <div class="clearfix"> </div>
+            
+            <div class="vali-form-group">  
 
               <?php
               if (!isset($editemp["RoleId"]) || $editemp["RoleId"] != 1) {
