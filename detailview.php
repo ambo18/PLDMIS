@@ -174,20 +174,26 @@
 				</tbody>
 				<tbody>
 					<tr>
-						<td style="text-align: right;"><b>GSIS NO.</b> ::</td>
+						<td style="text-align: right;"><b>GSIS No.</b> ::</td>
 						<td><?php if($row) { echo $row['GSISNO']; } else{ echo "Null"; }?></td>
 					</tr>
 				</tbody>
 				<tbody>
 					<tr>
-						<td style="text-align: right;"><b>PAG-IBIG NO.</b> ::</td>
+						<td style="text-align: right;"><b>PAG-IBIG No.</b> ::</td>
 						<td><?php if($row) { echo $row['PAGIBIGNO']; } else{ echo "Null"; }?></td>
 					</tr>
 				</tbody>
 				<tbody>
 					<tr>
-						<td style="text-align: right;"><b>TIN NO.</b> ::</td>
+						<td style="text-align: right;"><b>TIN No.</b> ::</td>
 						<td><?php if($row) { echo $row['TINNO']; } else{ echo "Null"; }?></td>
+					</tr>
+				</tbody>
+				<tbody>
+					<tr>
+						<td style="text-align: right;"><b>PHILHEALTH No.</b> ::</td>
+						<td><?php if($row) { echo $row['PHILHEALTHNO']; } else{ echo "Null"; }?></td>
 					</tr>
 				</tbody>
 				<tbody>
